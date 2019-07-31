@@ -1,48 +1,36 @@
 import React from "react";
-import "./App.css";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import { get } from "./reducers/index";
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import PrivateRoute from './auth/PrivateRoute'
+import NavBar from "./components/Navbar";
+import MarketPage from './components/MarketPage';
+import Main from './components/Main'
+// import { get } from "./reducers/index";
 
-class App extends React.Component {
-  componentDidMount() {
-    console.log("cmd happened");
+// class App extends React.Component {
 
-    this.props.get();
-  }
+  // componentDidMount() {
+  //   this.props.get();
+  // };
 
-  render() {
-    console.log(this.props.message);
+  // render() {
+    // console.log(this.props.message);
+    export default function App () {
     return (
       <div className="App">
-        <p>{this.props.message.message}</p>
-        <Map
-          google={this.props.google}
-          zoom={12}
-          style={mapStyles}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
-          >
-          <Marker position={{ lat: 48.00, lng: -122.00}} />
-        </Map>
+        <NavBar />
+        <Route exact path='/' component={MarketPage}/> 
+        <PrivateRoute path='/auth' component={Main}/>
       </div>
     );
-  }
-}
-
-const mapStateToProps = ({ message }) => ({
-  message
-});
-
-const mapStyles = {
-  width: '50%',
-  height: '50%',
+  // };
 };
 
-export default connect(
-  mapStateToProps,
-  { get }
-)(App);
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw'
-})(MapContainer);
+// const mapStateToProps = ({ message }) => ({
+//   message
+// });
+
+// export default connect(
+//   mapStateToProps,
+//   { get }
+// )(App);
