@@ -3,7 +3,7 @@ import "./App.css";
 import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import { get } from "./reducers/index";
-import MapContainer from "./components/google-map"
+//import MapContainer from "./components/google-map"
 
 class App extends React.Component {
   componentDidMount() {
