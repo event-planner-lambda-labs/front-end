@@ -1,36 +1,34 @@
 import React from "react";
-// import { connect } from "react-redux";
 import { Route } from "react-router-dom";
 import PrivateRoute from './auth/PrivateRoute'
 import NavBar from "./components/Navbar";
 import MarketPage from './components/MarketPage';
 import Main from './components/Main'
-// import { get } from "./reducers/index";
+import Auth0Lock from 'auth0-lock'
 
-// class App extends React.Component {
+export default class App extends React.Component {
 
-  // componentDidMount() {
-  //   this.props.get();
-  // };
+  lock = new Auth0Lock(
+    'ctJo350XuIZrh7bP4CkLgYQ03bQnELii',
+    'gohavefun.auth0.com',
+    {
+      auth: {
+        redirectUrl: 'http://localhost:3000/auth',
+        responseType: 'token',
+        params: {
+          scope: 'openid email'
+        }
+      }
+    }
+  );
 
-  // render() {
-    // console.log(this.props.message);
-    export default function App () {
+  render() {
     return (
       <div className="App">
-        <NavBar />
-        <Route exact path='/' component={MarketPage}/> 
-        <PrivateRoute path='/auth' component={Main}/>
+        <NavBar lock={this.lock} />
+        <Route exact path='/' component={MarketPage} />
+        <Route path='/auth' render={props => <Main {...props} lock={this.lock} />} />
       </div>
     );
-  // };
+  };
 };
-
-// const mapStateToProps = ({ message }) => ({
-//   message
-// });
-
-// export default connect(
-//   mapStateToProps,
-//   { get }
-// )(App);

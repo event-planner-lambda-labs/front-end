@@ -1,18 +1,37 @@
 import React from 'react';
-import { useAuth0 } from '../auth/react-auth0-wrapper';
 
-const Main = () => {
-    const { loading, user } = useAuth0();
+class Main extends React.Component {
 
-    if( loading || !user ) return "Loading";
+    componentDidMount() {
+        this.props.lock.on('authenticated', function (authResult) {
+            this.getUserInfo(authResult.accessToken, function (error, profile) {
+                if (error) {
+                    return;
+                }
+                localStorage.setItem('token', authResult.accessToken);
+                localStorage.setItem('profile', JSON.stringify(profile));
+            });
+        });
+    };
 
-    return (
-        <>
-            <img src={user.picture} alt='Profile'/>
 
-            <h2>Welcome, {user.name}</h2>
-        </>
-    );
+
+    render() {
+        if (localStorage.profile) {
+            return (
+                <>
+                    <h2>Welcome ${localStorage.profile.name}</h2>
+                </>
+            );
+        } else {
+            return (
+
+                <div>
+                    Loading profile
+            </div>
+            );
+        }
+    };
 };
 
 export default Main;
