@@ -33,7 +33,7 @@ export class EventForm extends Component {
 
   //Handle Change
 
-  handelChange = input => e => {
+  handleChange = input => e => {
     this.setState({ [input]: e.target.value });
   };
 
@@ -48,6 +48,7 @@ export class EventForm extends Component {
       longDetails,
       publicStatus
     } = this.state;
+    
     const values = {
       title,
       location,
@@ -63,7 +64,7 @@ export class EventForm extends Component {
         return (
           <EventDetails
             nextStep={this.nextStep}
-            handelChange={this.handelChange}
+            handleChange={this.handleChange}
             values={values}
           />
         );
