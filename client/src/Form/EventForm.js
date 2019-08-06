@@ -40,6 +40,11 @@ export class EventForm extends Component {
     this.setState({ [input]: e.target.value });
   };
 
+  //Checkbox
+   handleChange = publicStatus => event => {
+    this.setState({ [publicStatus]: event.target.checked });
+  };
+
   render() {
     const { step } = this.state;
     const {
@@ -89,7 +94,7 @@ export class EventForm extends Component {
             />
         );
       case 4:
-        return <h1>Success</h1>;
+        return <Success />;
       default:
         return null;
     }

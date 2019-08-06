@@ -4,7 +4,7 @@ import AppBar from "material-ui/AppBar";
 import { List, ListItem} from "material-ui/List";
 import RaisedButton from "material-ui/RaisedButton";
 
-export class EventDetails extends Component {
+export class Confirm extends Component {
   contine = e => {
     e.preventDefault();
     //Send to backend 
@@ -73,4 +73,4 @@ const styles = {
   }
 };
 
-export default EventDetails;
+export default Confirm;

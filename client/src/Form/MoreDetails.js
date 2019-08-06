@@ -3,8 +3,13 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
+import Checkbox from '@material-ui/core/Checkbox';
 
 export class MoreDetails extends Component {
+  state = {
+    publicStatus:true 
+  };
+
   contine = e => {
     e.preventDefault();
     this.props.nextStep();
@@ -35,6 +40,15 @@ export class MoreDetails extends Component {
             onChange={handleChange("longDetails")}
             defaultValue={values.longDetails}
           />
+          <br />
+           <Checkbox
+        checked={this.state.publicStatus}
+        onChange={handleChange('publicStatus')}
+        value="publicStatus"
+        inputProps={{
+          'aria-label': 'primary checkbox',
+        }}
+      />
 
           <br />
           <RaisedButton
