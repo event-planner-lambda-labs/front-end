@@ -1,31 +1,28 @@
 import React from "react";
-import "./App.css";
-import { connect } from "react-redux";
 import { Route } from "react-router-dom";
-import { get } from "./reducers/index";
+import PrivateRoute from "./auth/PrivateRoute";
+import NavBar from "./components/NavBar";
+import LandingPage from "./components/LandingPage";
+import Main from "./components/Main";
+import Auth0Lock from "auth0-lock";
 
-class App extends React.Component {
-  componentDidMount() {
-    console.log("cmd happened");
-
-    this.props.get();
-  }
+export default class App extends React.Component {
+  lock = new Auth0Lock("ctJo350XuIZrh7bP4CkLgYQ03bQnELii", "gohavefun.auth0.com", {
+    auth: {
+      redirectUrl: "http://localhost:3000/welcome",
+      responseType: "token",
+      params: {
+        scope: "openid email"
+      }
+    }
+  });
 
   render() {
-    console.log(this.props.message);
     return (
       <div className="App">
-        <p>{this.props.message.message}</p>
+        <NavBar lock={this.lock} />
+        <LandingPage />
       </div>
     );
   }
 }
-
-const mapStateToProps = ({ message }) => ({
-  message
-});
-
-export default connect(
-  mapStateToProps,
-  { get }
-)(App);
