@@ -22,6 +22,7 @@ export default class App extends React.Component {
       <div className="App">
         <NavBar lock={this.lock} />
         <LandingPage />
+        <Route path="/map" component={Main} />
       </div>
     );
   }
