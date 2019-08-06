@@ -5,6 +5,7 @@ import NavBar from "./components/Navbar";
 import MarketPage from './components/MarketPage';
 import Main from './components/Main'
 import Auth0Lock from 'auth0-lock'
+import Welcome from "./components/Welcome";
 
 export default class App extends React.Component {
 
@@ -13,7 +14,7 @@ export default class App extends React.Component {
     'gohavefun.auth0.com',
     {
       auth: {
-        redirectUrl: 'http://localhost:3000/auth',
+        redirectUrl: 'http://localhost:3000/welcome',
         responseType: 'token',
         params: {
           scope: 'openid email'
@@ -27,7 +28,8 @@ export default class App extends React.Component {
       <div className="App">
         <NavBar lock={this.lock} />
         <Route exact path='/' component={MarketPage} />
-        <Route path='/auth' render={props => <Main {...props} lock={this.lock} />} />
+        <Route path='/welcome' render={props => <Welcome {...props} lock={this.lock} />} />
+        <PrivateRoute path='/auth' component={Main} />
       </div>
     );
   };
