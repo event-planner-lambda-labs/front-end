@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import EventDetails from "./EventDetails";
+import MoreDetails from "./MoreDetails";
+import Confirm from "./Confirm";
+import Success from "./Success";
 
 export class EventForm extends Component {
   state = {
@@ -48,7 +51,7 @@ export class EventForm extends Component {
       longDetails,
       publicStatus
     } = this.state;
-    
+
     const values = {
       title,
       location,
@@ -62,16 +65,29 @@ export class EventForm extends Component {
     switch (step) {
       case 1:
         return (
-          <EventDetails
-            nextStep={this.nextStep}
-            handleChange={this.handleChange}
-            values={values}
-          />
+            <EventDetails
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
         );
       case 2:
-        return <h1>PersonalDetails</h1>;
+          return (
+            <MoreDetails
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
+        );
       case 3:
-        return <h1>Confirm</h1>;
+          return (
+            <Confirm
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              values={values}
+            />
+        );
       case 4:
         return <h1>Success</h1>;
       default:

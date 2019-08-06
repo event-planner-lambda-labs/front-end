@@ -5,7 +5,7 @@ import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
 
 export class EventDetails extends Component {
-  contine = e => {
+  continue = e => {
     e.preventDefault();
     this.props.nextStep();
   };
@@ -25,22 +25,22 @@ export class EventDetails extends Component {
           <TextField
             hintText="Enter Your Event Location"
             floatingLabelText="Event Location"
-            onChange={handleChange("title")}
-            defaultValue={values.title}
+            onChange={handleChange("location")}
+            defaultValue={values.location}
           />
           <br />
           <TextField
             hintText="Enter Your Event Time"
             floatingLabelText="Event Time"
             onChange={handleChange("eventTime")}
-            defaultValue={values.title}
+            defaultValue={values.eventTime}
           />
           <br />
           <TextField
             hintText="Enter Your Event Date"
             floatingLabelText="Event Date"
-            onChange={handleChange("eventdate")}
-            defaultValue={values.title}
+            onChange={handleChange("eventDate")}
+            defaultValue={values.eventDate}
           />
           <br />
           <RaisedButton
