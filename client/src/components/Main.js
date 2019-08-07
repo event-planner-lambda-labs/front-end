@@ -8,7 +8,6 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <SimpleModal />
         <MapComponent />
       </div>
     );

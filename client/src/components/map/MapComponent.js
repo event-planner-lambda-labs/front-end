@@ -42,8 +42,6 @@ function Map() {
 
   return (
     <body className="google-map">
-      <Geo />
-      <LocationSearchComponent />
       <GoogleMap
         defaultZoom={18}
         defaultCenter={{ lat: 39.063555, lng: -94.583268 }}
@@ -97,7 +95,9 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function eventMap() {
   return (
-    <div style={{ width: "100vw", height: "90vh" }}>
+    <div style={{ width: "100vw", height: "80vh" }}>
+      <Geo />
+      <LocationSearchComponent />
       <WrappedMap
         googleMapURL={
           "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw 	"
