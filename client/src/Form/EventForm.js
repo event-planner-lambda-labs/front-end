@@ -35,14 +35,13 @@ export class EventForm extends Component {
   };
 
   //Handle Change
-
   handleChange = input => e => {
     this.setState({ [input]: e.target.value });
   };
 
   //Checkbox
-   handleChange = publicStatus => event => {
-    this.setState({ [publicStatus]: event.target.checked });
+  togglePublicStatus = () => {
+    this.setState({ publicStatus: !this.state.publicStatus });
   };
 
   render() {
@@ -70,28 +69,29 @@ export class EventForm extends Component {
     switch (step) {
       case 1:
         return (
-            <EventDetails
-              nextStep={this.nextStep}
-              handleChange={this.handleChange}
-              values={values}
-            />
+          <EventDetails
+            nextStep={this.nextStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
         );
       case 2:
-          return (
-            <MoreDetails
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              handleChange={this.handleChange}
-              values={values}
-            />
+        return (
+          <MoreDetails
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            togglePublicStatus={this.togglePublicStatus}
+            values={values}
+          />
         );
       case 3:
-          return (
-            <Confirm
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              values={values}
-            />
+        return (
+          <Confirm
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+          />
         );
       case 4:
         return <Success />;

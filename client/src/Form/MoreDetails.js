@@ -3,14 +3,11 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
-import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
 export class MoreDetails extends Component {
-  state = {
-    publicStatus:true 
-  };
-
-  contine = e => {
+  continue = e => {
     e.preventDefault();
     this.props.nextStep();
   };
@@ -21,7 +18,7 @@ export class MoreDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const { values, handleChange, togglePublicStatus } = this.props;
     return (
       <MuiThemeProvider>
         <React.Fragment>
@@ -41,14 +38,19 @@ export class MoreDetails extends Component {
             defaultValue={values.longDetails}
           />
           <br />
-           <Checkbox
-        checked={this.state.publicStatus}
-        onChange={handleChange('publicStatus')}
-        value="publicStatus"
-        inputProps={{
-          'aria-label': 'primary checkbox',
-        }}
-      />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={values.publicStatus}
+                onChange={togglePublicStatus}
+                value="publicStatus"
+                inputProps={{
+                  "aria-label": "primary checkbox"
+                }}
+              />
+            }
+            label="Private Event"
+          />
 
           <br />
           <RaisedButton

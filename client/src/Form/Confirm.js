@@ -5,7 +5,7 @@ import { List, ListItem} from "material-ui/List";
 import RaisedButton from "material-ui/RaisedButton";
 
 export class Confirm extends Component {
-  contine = e => {
+  continue = e => {
     e.preventDefault();
     //Send to backend 
     this.props.nextStep();

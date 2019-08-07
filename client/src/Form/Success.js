@@ -4,7 +4,7 @@ import AppBar from "material-ui/AppBar";
 
 
 export class Success extends Component {
-  contine = e => {
+  continue = e => {
     e.preventDefault();
     //Send to backend 
     this.props.nextStep();
