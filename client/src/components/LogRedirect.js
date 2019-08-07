@@ -2,6 +2,7 @@ import React from "react";
 
 class Redirect extends React.Component {
   componentDidMount() {
+    console.log(this.props);
     this.props.lock.on("authenticated", function(authResult) {
       this.getUserInfo(authResult.accessToken, function(error, profile) {
         if (error) {
