@@ -13,7 +13,7 @@ class NavBar extends React.Component {
     e.preventDefault();
     localStorage.removeItem("token");
     localStorage.removeItem("profile");
-    this.props.history.push("/");
+    this.props.history.push("/welcome");
   };
 
   navBtn = () => {

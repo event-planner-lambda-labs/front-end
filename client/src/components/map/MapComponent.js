@@ -3,7 +3,8 @@ import React, { useState, Component } from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 //import * as eventsData from "data file for event details";
 import mapStyles from "../../styles/MapStyles";
-import geoLocated from "./GeoComponent";
+import Geo from "./GeoComponent";
+// import LocationSearchComponent from "./LocationSearchComponent";
 
 function Map() {
   //setting up to display event detail boxes when clicking markers
@@ -14,8 +15,8 @@ function Map() {
   //default map renders to ground 0, eventsData and id can be confirmed/updated once event dataset array is built out
   return (
     <body className="google-map">
-      <geoLocated />
-
+      <Geo />
+      {/* <LocationSearchComponent /> */}
       <GoogleMap
         defaultZoom={10}
         defaultCenter={{ lat: 39.063555, lng: -94.583268 }}

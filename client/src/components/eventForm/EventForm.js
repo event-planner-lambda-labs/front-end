@@ -3,6 +3,7 @@ import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
+import AppBar from "material-ui/AppBar";
 
 export class EventForm extends Component {
   state = {
@@ -41,7 +42,7 @@ export class EventForm extends Component {
   };
 
   //Checkbox
-   handleChange = publicStatus => event => {
+  handleChange = publicStatus => event => {
     this.setState({ [publicStatus]: event.target.checked });
   };
 
@@ -70,29 +71,19 @@ export class EventForm extends Component {
     switch (step) {
       case 1:
         return (
-            <EventDetails
-              nextStep={this.nextStep}
-              handleChange={this.handleChange}
-              values={values}
-            />
+          <EventDetails nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
         );
       case 2:
-          return (
-            <MoreDetails
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              handleChange={this.handleChange}
-              values={values}
-            />
+        return (
+          <MoreDetails
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
         );
       case 3:
-          return (
-            <Confirm
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              values={values}
-            />
-        );
+        return <Confirm nextStep={this.nextStep} prevStep={this.prevStep} values={values} />;
       case 4:
         return <Success />;
       default:

@@ -3,11 +3,11 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import AppBar from "material-ui/AppBar";
 import TextField from "material-ui/TextField";
 import RaisedButton from "material-ui/RaisedButton";
-import Checkbox from '@material-ui/core/Checkbox';
+import Checkbox from "@material-ui/core/Checkbox";
 
 export class MoreDetails extends Component {
   state = {
-    publicStatus:true 
+    publicStatus: true
   };
 
   contine = e => {
@@ -41,14 +41,14 @@ export class MoreDetails extends Component {
             defaultValue={values.longDetails}
           />
           <br />
-           <Checkbox
-        checked={this.state.publicStatus}
-        onChange={handleChange('publicStatus')}
-        value="publicStatus"
-        inputProps={{
-          'aria-label': 'primary checkbox',
-        }}
-      />
+          <Checkbox
+            checked={this.state.publicStatus}
+            onChange={handleChange("publicStatus")}
+            value="publicStatus"
+            inputProps={{
+              "aria-label": "primary checkbox"
+            }}
+          />
 
           <br />
           <RaisedButton
@@ -57,12 +57,7 @@ export class MoreDetails extends Component {
             styles={styles.button}
             onClick={this.continue}
           />
-          <RaisedButton
-            label="Back"
-            primary={false}
-            styles={styles.button}
-            onClick={this.back}
-          />
+          <RaisedButton label="Back" primary={false} styles={styles.button} onClick={this.back} />
         </React.Fragment>
       </MuiThemeProvider>
     );
