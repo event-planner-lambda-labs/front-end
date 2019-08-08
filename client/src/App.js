@@ -1,36 +1,31 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import PrivateRoute from './auth/PrivateRoute'
-import NavBar from "./components/Navbar";
-import MarketPage from './components/MarketPage';
-import Main from './components/Main'
-import Auth0Lock from 'auth0-lock'
-import Welcome from "./components/Welcome";
+import PrivateRoute from "./auth/PrivateRoute";
+import NavBar from "./components/NavBar";
+import LandingPage from "./components/LandingPage";
+import Main from "./components/Main";
+import Auth0Lock from "auth0-lock";
+import Redirect from "./components/LogRedirect";
 
 export default class App extends React.Component {
-
-  lock = new Auth0Lock(
-    'ctJo350XuIZrh7bP4CkLgYQ03bQnELii',
-    'gohavefun.auth0.com',
-    {
-      auth: {
-        redirectUrl: 'http://localhost:3000/welcome',
-        responseType: 'token',
-        params: {
-          scope: 'openid email'
-        }
+  lock = new Auth0Lock("ctJo350XuIZrh7bP4CkLgYQ03bQnELii", "gohavefun.auth0.com", {
+    auth: {
+      redirectUrl: "http://localhost:3000/redirect",
+      responseType: "token",
+      params: {
+        scope: "openid email"
       }
     }
-  );
+  });
 
   render() {
     return (
       <div className="App">
         <NavBar lock={this.lock} />
-        <Route exact path='/' component={MarketPage} />
-        <Route path='/welcome' render={props => <Welcome {...props} lock={this.lock} />} />
-        <PrivateRoute path='/auth' component={Main} />
+        <Route path="/welcome" component={LandingPage} />
+        <Route path="/main" component={Main} />
+        <Route path="/redirect" render={props => <Redirect {...props} lock={this.lock} />} />
       </div>
     );
-  };
-};
+  }
+}

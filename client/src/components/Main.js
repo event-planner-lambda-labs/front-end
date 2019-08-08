@@ -1,9 +1,17 @@
-import React from 'react';
+import React from "react";
+import MapComponent from "./map/MapComponent";
+import SimpleModal from "./eventForm/EventModal";
 
-export default function Main () {
+class Main extends React.Component {
+  // component did mount - get events
+
+  render() {
     return (
-        <>
-            <h2>Main Page</h2>
-        </>
+      <div>
+        <MapComponent />
+      </div>
     );
-};
+  }
+}
+
+export default Main;
