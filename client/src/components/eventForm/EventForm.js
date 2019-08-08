@@ -3,18 +3,19 @@ import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
-import AppBar from "material-ui/AppBar";
 
 export class EventForm extends Component {
   state = {
     step: 1,
-    title: "",
-    location: "",
-    eventTime: "",
-    eventDate: "",
-    shortDetails: "",
-    longDetails: "",
-    publicStatus: true
+    newEvent: {
+      title: "",
+      location: "",
+      eventTime: "",
+      eventDate: "",
+      shortDetails: "",
+      longDetails: "",
+      publicStatus: true
+    }
   };
 
   //Proceed to next step
@@ -36,17 +37,17 @@ export class EventForm extends Component {
   };
 
   //Handle Change
-
   handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
+    this.setState({ newEvent: { ...this.state.newEvent, [input]: e.target.value } });
   };
 
   //Checkbox
-  handleChange = publicStatus => event => {
-    this.setState({ [publicStatus]: event.target.checked });
+  togglePublicStatus = () => {
+    this.setState({ publicStatus: !this.state.newEvent.publicStatus });
   };
 
   render() {
+    console.log(this.state.newEvent);
     const { step } = this.state;
     const {
       title,
@@ -56,7 +57,7 @@ export class EventForm extends Component {
       shortDetails,
       longDetails,
       publicStatus
-    } = this.state;
+    } = this.state.newEvent;
 
     const values = {
       title,
@@ -79,6 +80,7 @@ export class EventForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChange={this.handleChange}
+            togglePublicStatus={this.togglePublicStatus}
             values={values}
           />
         );

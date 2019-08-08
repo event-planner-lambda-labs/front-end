@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import { List, ListItem } from "material-ui/List";
-import RaisedButton from "material-ui/RaisedButton";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import { List, ListItemText } from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 
 export class Confirm extends Component {
-  contine = e => {
+  continue = e => {
     e.preventDefault();
     //Send to backend
     this.props.nextStep();
@@ -25,26 +25,32 @@ export class Confirm extends Component {
         <React.Fragment>
           <AppBar title="Confirm Event Details" />
           <List>
-            <ListItem primaryText="Title" secondaryText={title} />
-            <ListItem primaryText="Location" secondaryText={location} />
-            <ListItem primaryText="Event Time" secondaryText={eventTime} />
-            <ListItem primaryText="Event Date" secondaryText={eventDate} />
-            <ListItem primaryText="Short Details" secondaryText={shortDetails} />
-            <ListItem primaryText="Long Details" secondaryText={longDetails} />
+            <ListItemText primary="Title" secondary={title} />
+            <ListItemText primary="Location" secondary={location} />
+            <ListItemText primary="Event Time" secondary={eventTime} />
+            <ListItemText primary="Event Date" secondary={eventDate} />
+            <ListItemText primary="Short Details" secondary={shortDetails} />
+            <ListItemText primary="Long Details" secondary={longDetails} />
           </List>
 
-          <RaisedButton
+          <Button
             label="Confirm and Continue"
+            variant="contained"
             primary={true}
             styles={styles.button}
             onClick={this.continue}
-          />
-          <RaisedButton
-            label="Continue"
+          >
+            Continue
+          </Button>
+          <Button
+            label="Back"
+            variant="contained"
             primary={false}
             styles={styles.button}
             onClick={this.back}
-          />
+          >
+            Back
+          </Button>
         </React.Fragment>
       </MuiThemeProvider>
     );

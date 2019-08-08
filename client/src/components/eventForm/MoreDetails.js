@@ -1,16 +1,13 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import TextField from "material-ui/TextField";
-import RaisedButton from "material-ui/RaisedButton";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 
 export class MoreDetails extends Component {
-  state = {
-    publicStatus: true
-  };
-
-  contine = e => {
+  continue = e => {
     e.preventDefault();
     this.props.nextStep();
   };
@@ -21,43 +18,58 @@ export class MoreDetails extends Component {
   };
 
   render() {
-    const { values, handleChange } = this.props;
+    const { values, handleChange, togglePublicStatus } = this.props;
     return (
       <MuiThemeProvider>
         <React.Fragment>
           <AppBar title="Enter More Details" />
           <TextField
-            hintText="Enter Short Details"
-            floatingLabelText="Short Details"
+            label="Short Details"
             onChange={handleChange("shortDetails")}
-            defaultValue={values.shortDetails}
+            value={values.shortDetails}
           />
           <br />
           <TextField
-            hintText="Enter Long Details"
-            floatingLabelText="Long Details"
-            multiline="true"
+            label="Long Details"
+            multiline
+            rowsMax="7"
             onChange={handleChange("longDetails")}
             defaultValue={values.longDetails}
           />
           <br />
-          <Checkbox
-            checked={this.state.publicStatus}
-            onChange={handleChange("publicStatus")}
-            value="publicStatus"
-            inputProps={{
-              "aria-label": "primary checkbox"
-            }}
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={values.publicStatus}
+                onChange={togglePublicStatus}
+                value="publicStatus"
+                inputProps={{
+                  "aria-label": "primary checkbox"
+                }}
+              />
+            }
+            label="Private Event"
           />
 
           <br />
-          <RaisedButton
+          <Button
             label="Continue"
+            variant="contained"
             primary={true}
             styles={styles.button}
             onClick={this.continue}
-          />
-          <RaisedButton label="Back" primary={false} styles={styles.button} onClick={this.back} />
+          >
+            Continue
+          </Button>
+          <Button
+            label="Back"
+            variant="contained"
+            primary={false}
+            styles={styles.button}
+            onClick={this.back}
+          >
+            Back
+          </Button>
         </React.Fragment>
       </MuiThemeProvider>
     );
