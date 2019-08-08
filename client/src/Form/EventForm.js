@@ -38,15 +38,16 @@ export class EventForm extends Component {
 
   //Handle Change
   handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
+    this.setState({ newEvent:{...this.state.newEvent, [input]: e.target.value} });
   };
 
   //Checkbox
   togglePublicStatus = () => {
-    this.setState({ publicStatus: !this.state.publicStatus });
+    this.setState({ publicStatus: !this.state.newEvent.publicStatus });
   };
 
   render() {
+    console.log(this.state.newEvent)
     const { step } = this.state;
     const {
       title,

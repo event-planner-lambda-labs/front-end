@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
-import { List, ListItem, ListItemText} from "@material-ui/core";
+import { List, ListItemText} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 
 export class Confirm extends Component {
