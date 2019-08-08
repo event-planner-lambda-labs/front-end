@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import { List, ListItem} from "material-ui/List";
-import RaisedButton from "material-ui/RaisedButton";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import { List, ListItem, ListItemText} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 
 export class Confirm extends Component {
   continue = e => {
@@ -23,44 +23,51 @@ export class Confirm extends Component {
         <React.Fragment>
           <AppBar title="Confirm Event Details" />
           <List>
-              <ListItem
-                primaryText="Title"
-                seondaryText={ title }
+              <ListItemText
+                primary="Title"
+                seondary={ title }
               />
-              <ListItem
-                primaryText="Location"
-                seondaryText={ location }
+              <ListItemText
+                primary="Location"
+                seondary={ location }
               />
-              <ListItem
-                primaryText="Event Time"
-                seondaryText={ eventTime }
+              <ListItemText
+                primary="Event Time"
+                seondary={ eventTime }
               />
-              <ListItem
-                primaryText="Event Date"
-                seondaryText={ eventDate }
+              <ListItemText
+                primary="Event Date"
+                seondary={ eventDate }
               />
-              <ListItem
-                primaryText="Short Details"
-                seondaryText={ shortDetails }
+              <ListItemText
+                primary="Short Details"
+                seondary={ shortDetails }
               />
-              <ListItem
-                primaryText="Long Details"
-                seondaryText={ longDetails }
+              <ListItemText
+                primary="Long Details"
+                seondary={ longDetails }
               />
           </List>
           
-          <RaisedButton
+          <Button
             label="Confirm and Continue"
+            variant="contained"
             primary={true}
             styles={styles.button}
             onClick={this.continue}
-          />
-             <RaisedButton
-            label="Continue"
+            >
+            Continue
+            </Button>
+             <Button
+            label="Back"
+            variant="contained"
             primary={false}
             styles={styles.button}
             onClick={this.back}
-          />
+            >
+            Back
+            </Button>
+          
         </React.Fragment>
       </MuiThemeProvider>
     );

@@ -5,18 +5,20 @@ import Confirm from "./Confirm";
 import Success from "./Success";
 
 export class EventForm extends Component {
-  state = {
+  state =  {
     step: 1,
+    newEvent: {
     title: "",
     location: "",
     eventTime: "",
     eventDate: "",
     shortDetails: "",
     longDetails: "",
-    publicStatus: true
-  };
+    publicStatus: true 
+  }
+};
 
-  //Proceed to next step
+  //Proceed to next step 
 
   nextStep = () => {
     const { step } = this.state;
@@ -54,7 +56,7 @@ export class EventForm extends Component {
       shortDetails,
       longDetails,
       publicStatus
-    } = this.state;
+    } = this.state.newEvent;
 
     const values = {
       title,
