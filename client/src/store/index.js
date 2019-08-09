@@ -353,7 +353,7 @@ export const getEvents = () => dispatch => {
       dispatch({ type: FETCH_EVENTS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: FETCH_EVENTS_FAIL, payload: err.response.data.message });
+      dispatch({ type: FETCH_EVENTS_FAIL, payload: err });
     });
 };
 
