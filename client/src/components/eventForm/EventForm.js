@@ -14,7 +14,7 @@ export class EventForm extends Component {
       event_date: "",
       short_details: "",
       long_details: "",
-      public: true,
+      public_status: true,
       host_id: 1 // test, need to pass in host_id
     }
   };
@@ -44,7 +44,7 @@ export class EventForm extends Component {
 
   //Checkbox
   togglePublicStatus = () => {
-    this.setState({ publicStatus: !this.state.newEvent.publicStatus });
+    this.setState({ public_status: !this.state.newEvent.public_status });
   };
 
   render() {
@@ -53,21 +53,23 @@ export class EventForm extends Component {
     const {
       title,
       location,
-      eventTime,
-      eventDate,
-      shortDetails,
-      longDetails,
-      publicStatus
+      time,
+      event_date,
+      short_details,
+      long_details,
+      public_status,
+      host_id
     } = this.state.newEvent;
 
     const values = {
       title,
       location,
-      eventTime,
-      eventDate,
-      shortDetails,
-      longDetails,
-      publicStatus
+      time,
+      event_date,
+      short_details,
+      long_details,
+      public_status,
+      host_id
     };
 
     switch (step) {

@@ -25,24 +25,24 @@ export class MoreDetails extends Component {
           <AppBar title="Enter More Details" />
           <TextField
             label="Short Details"
-            onChange={handleChange("shortDetails")}
-            value={values.shortDetails}
+            onChange={handleChange("short_details")}
+            value={values.short_details}
           />
           <br />
           <TextField
             label="Long Details"
             multiline
             rowsMax="7"
-            onChange={handleChange("longDetails")}
-            defaultValue={values.longDetails}
+            onChange={handleChange("long_details")}
+            defaultValue={values.long_details}
           />
           <br />
           <FormControlLabel
             control={
               <Checkbox
-                checked={values.publicStatus}
+                checked={values.public_status}
                 onChange={togglePublicStatus}
-                value="publicStatus"
+                value="public_status"
                 inputProps={{
                   "aria-label": "primary checkbox"
                 }}

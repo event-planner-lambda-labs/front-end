@@ -26,7 +26,7 @@ export class Confirm extends Component {
 
   render() {
     const {
-      values: { title, location, eventTime, eventDate, shortDetails, longDetails }
+      values: { title, location, event_time, event_date, short_details, long_details }
     } = this.props;
     return (
       <MuiThemeProvider>
@@ -35,10 +35,10 @@ export class Confirm extends Component {
           <List>
             <ListItemText primary="Title" secondary={title} />
             <ListItemText primary="Location" secondary={location} />
-            <ListItemText primary="Event Time" secondary={eventTime} />
-            <ListItemText primary="Event Date" secondary={eventDate} />
-            <ListItemText primary="Short Details" secondary={shortDetails} />
-            <ListItemText primary="Long Details" secondary={longDetails} />
+            <ListItemText primary="Event Time" secondary={event_time} />
+            <ListItemText primary="Event Date" secondary={event_date} />
+            <ListItemText primary="Short Details" secondary={short_details} />
+            <ListItemText primary="Long Details" secondary={long_details} />
           </List>
 
           <Button
