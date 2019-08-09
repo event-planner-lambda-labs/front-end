@@ -33,14 +33,14 @@ export class EventDetails extends Component {
           <TextField
             label="Event Time"
             onChange={handleChange("event_time")}
-            value={values.eventTime}
+            value={values.event_time}
             required
           />
           <br />
           <TextField
             label="Event Date"
             onChange={handleChange("event_date")}
-            value={values.eventDate}
+            value={values.event_date}
             required
           />
           <br />

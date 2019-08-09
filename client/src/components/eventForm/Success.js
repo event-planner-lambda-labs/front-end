@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
+import { withRouter } from "react-router-dom";
 
 export class Success extends Component {
   componentDidMount() {
@@ -22,4 +23,4 @@ export class Success extends Component {
   }
 }
 
-export default Success;
+export default withRouter(Success);

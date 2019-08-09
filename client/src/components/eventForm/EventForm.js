@@ -53,7 +53,7 @@ export class EventForm extends Component {
     const {
       title,
       location,
-      time,
+      event_time,
       event_date,
       short_details,
       long_details,
@@ -64,7 +64,7 @@ export class EventForm extends Component {
     const values = {
       title,
       location,
-      time,
+      event_time,
       event_date,
       short_details,
       long_details,

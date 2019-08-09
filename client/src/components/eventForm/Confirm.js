@@ -12,11 +12,13 @@ export class Confirm extends Component {
     console.log(this.props.newEvent);
     await this.props.postEvent(this.props.newEvent);
     //Send to backend
-    if (this.props.postedEvent) {
-      this.props.nextStep();
-    } else {
-      alert("Event was not posted :( Try again?");
-    }
+    setTimeout(() => {
+      if (this.props.postedEvent) {
+        this.props.nextStep();
+      } else {
+        alert("Event was not posted :( Try again?");
+      }
+    }, 2000);
   };
 
   back = e => {
