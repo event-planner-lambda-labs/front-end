@@ -8,7 +8,7 @@ import thunk from "redux-thunk";
 import { createStore, applyMiddleware, compose } from "redux";
 import { BrowserRouter as Router, withRouter } from "react-router-dom";
 import logger from "redux-logger";
-import reducer from "./reducers/index";
+import reducer from "./store/index";
 
 const devTool = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 
