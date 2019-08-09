@@ -49,6 +49,7 @@ export default function reducer(state = initialState, action) {
         fetching: false,
         message: action.payload
       };
+    // GET USERS //
     case FETCH_USERS_START:
       return {
         ...state,
@@ -67,6 +68,7 @@ export default function reducer(state = initialState, action) {
         fetchingUsers: false,
         error: action.payload
       };
+    // GET USER //
     case FETCH_USER_START:
       return {
         ...state,
@@ -85,6 +87,7 @@ export default function reducer(state = initialState, action) {
         fetchingUser: false,
         error: action.payload
       };
+    // POST USER //
     case POST_USER_START:
       return {
         ...state,
@@ -103,6 +106,7 @@ export default function reducer(state = initialState, action) {
         postingUser: false,
         error: action.payload
       };
+    // PUT USER //
     case UPDATE_USER_START:
       return {
         ...state,
@@ -121,6 +125,7 @@ export default function reducer(state = initialState, action) {
         postingUser: false,
         error: action.payload
       };
+    // DELETE USER //
     case DELETE_USER_START:
       return {
         ...state,
@@ -139,6 +144,7 @@ export default function reducer(state = initialState, action) {
         deletingUser: false,
         error: action.payload
       };
+    // GET ALL EVENTS //
     case FETCH_EVENTS_START:
       return {
         ...state,
@@ -157,6 +163,7 @@ export default function reducer(state = initialState, action) {
         fetchingEvents: false,
         error: action.payload
       };
+    // GET EVENT //
     case FETCH_EVENT_START:
       return {
         ...state,
@@ -175,6 +182,7 @@ export default function reducer(state = initialState, action) {
         fetchingEvent: false,
         error: action.payload
       };
+    // POST EVENT //
     case POST_EVENT_START:
       return {
         ...state,
@@ -193,6 +201,7 @@ export default function reducer(state = initialState, action) {
         postingEvent: false,
         error: action.payload
       };
+    // PUT EVENT //
     case UPDATE_EVENT_START:
       return {
         ...state,
@@ -211,6 +220,7 @@ export default function reducer(state = initialState, action) {
         updatingEvent: false,
         error: action.payload
       };
+    // DELETE EVENT //
     case DELETE_EVENT_START:
       return {
         ...state,
@@ -233,7 +243,7 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-const Link = "https://labs-event-planner-staging.herokuapp.com/";
+const Link = "https://labs-event-planner-staging.herokuapp.com";
 
 const FETCH_START = "FETCH_START";
 const FETCH_SUCCESS = "FETCH_SUCCESS";
