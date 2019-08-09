@@ -10,11 +10,12 @@ export class EventForm extends Component {
     newEvent: {
       title: "",
       location: "",
-      eventTime: "",
-      eventDate: "",
-      shortDetails: "",
-      longDetails: "",
-      publicStatus: true
+      event_time: "",
+      event_date: "",
+      short_details: "",
+      long_details: "",
+      public: true,
+      host_id: 1 // test, need to pass in host_id
     }
   };
 
@@ -85,7 +86,14 @@ export class EventForm extends Component {
           />
         );
       case 3:
-        return <Confirm nextStep={this.nextStep} prevStep={this.prevStep} values={values} />;
+        return (
+          <Confirm
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+            newEvent={this.state.newEvent}
+          />
+        );
       case 4:
         return <Success />;
       default:

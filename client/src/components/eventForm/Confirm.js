@@ -3,12 +3,20 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import { List, ListItemText } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
+import { connect } from "react-redux";
+import { postEvent } from "../../store/index";
 
 export class Confirm extends Component {
-  continue = e => {
+  continue = async e => {
     e.preventDefault();
+    console.log(this.props.newEvent);
+    await this.props.postEvent(this.props.newEvent);
     //Send to backend
-    this.props.nextStep();
+    if (this.props.postedEvent) {
+      this.props.nextStep();
+    } else {
+      alert("Event was not posted :( Try again?");
+    }
   };
 
   back = e => {
@@ -22,7 +30,7 @@ export class Confirm extends Component {
     } = this.props;
     return (
       <MuiThemeProvider>
-        <React.Fragment>
+        <div className="createEventForm">
           <AppBar title="Confirm Event Details" />
           <List>
             <ListItemText primary="Title" secondary={title} />
@@ -51,7 +59,7 @@ export class Confirm extends Component {
           >
             Back
           </Button>
-        </React.Fragment>
+        </div>
       </MuiThemeProvider>
     );
   }
@@ -63,4 +71,9 @@ const styles = {
   }
 };
 
-export default Confirm;
+const mapStateToProps = ({ postingEvent, postedEvent }) => ({ postingEvent, postedEvent });
+
+export default connect(
+  mapStateToProps,
+  { postEvent }
+)(Confirm);

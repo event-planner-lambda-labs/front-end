@@ -13,7 +13,7 @@ export class EventDetails extends Component {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>
-        <form>
+        <form className="createEventForm">
           <AppBar title="Enter Event Details" />
           <TextField
             hintText="Enter Your Event Title"

@@ -21,7 +21,7 @@ export class MoreDetails extends Component {
     const { values, handleChange, togglePublicStatus } = this.props;
     return (
       <MuiThemeProvider>
-        <React.Fragment>
+        <div className="createEventForm">
           <AppBar title="Enter More Details" />
           <TextField
             label="Short Details"
@@ -70,7 +70,7 @@ export class MoreDetails extends Component {
           >
             Back
           </Button>
-        </React.Fragment>
+        </div>
       </MuiThemeProvider>
     );
   }

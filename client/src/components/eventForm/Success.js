@@ -3,25 +3,20 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 
 export class Success extends Component {
-  continue = e => {
-    e.preventDefault();
-    //Send to backend
-    this.props.nextStep();
-  };
-
-  back = e => {
-    e.preventDefault();
-    this.props.prevStep();
-  };
+  componentDidMount() {
+    setTimeout(() => {
+      this.props.history.push("/main");
+    }, 1250);
+  }
 
   render() {
     return (
       <MuiThemeProvider>
-        <React.Fragment>
+        <div className="createEventForm">
           <AppBar title="Success" />
           <h1>Thank You For Submitting Your Event</h1>
           <p>Now Go Have Fun!</p>
-        </React.Fragment>
+        </div>
       </MuiThemeProvider>
     );
   }

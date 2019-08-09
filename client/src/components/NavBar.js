@@ -45,6 +45,13 @@ class NavBar extends React.Component {
     }
   };
 
+  btnClicked = path => {
+    this.props.history.push(`/${path}`);
+    setTimeout(() => {
+      this.setState({ isOpen: false });
+    }, 500);
+  };
+
   render() {
     return (
       <>
@@ -53,7 +60,9 @@ class NavBar extends React.Component {
             <IconButton edge="start" onClick={this.handleBtn}>
               <Menu />
             </IconButton>
-            <Typography varient="h2">GoHaveFun</Typography>
+            <Typography varient="h2" onClick={() => this.btnClicked("main")} className="logo">
+              GoHaveFun
+            </Typography>
             {this.navBtn()}
           </Toolbar>
         </AppBar>
@@ -63,7 +72,7 @@ class NavBar extends React.Component {
             <ChevronLeft />
           </IconButton>
           <List>
-            <ListItem button>
+            <ListItem button onClick={() => this.btnClicked("createEvent")}>
               <ListItemText primary="Add Event" />
             </ListItem>
           </List>
