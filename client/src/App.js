@@ -8,10 +8,12 @@ import Auth0Lock from "auth0-lock";
 import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
 
+const link = window.location.origin;
+
 export default class App extends React.Component {
   lock = new Auth0Lock("ctJo350XuIZrh7bP4CkLgYQ03bQnELii", "gohavefun.auth0.com", {
     auth: {
-      redirectUrl: "http://localhost:3000/redirect",
+      redirectUrl: `${link}/redirect`,
       responseType: "token",
       params: {
         scope: "openid email"

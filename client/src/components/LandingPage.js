@@ -5,7 +5,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div>
-        <h1> welcome! </h1>
+        <h1> welcome to Go Have Fun! </h1>
         <Button onClick={() => this.props.history.push("/main")}> to the events </Button>
       </div>
     );
