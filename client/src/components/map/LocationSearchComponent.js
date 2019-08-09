@@ -1,7 +1,7 @@
 import React from "react";
 
 import PlacesAutocomplete from "react-places-autocomplete";
-import { geocodeByAddress, geocodeByPlaceId, getLatLng } from "react-places-autocomplete";
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
 class LocationSearchInput extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ class LocationSearchInput extends React.Component {
 
   handleChange = address => {
     this.setState({ address });
-    console.log(typeof(address))
+    console.log(typeof address);
   };
 
   handleSelect = address => {

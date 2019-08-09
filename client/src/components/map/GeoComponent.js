@@ -1,5 +1,4 @@
 import React from "react";
-import { geoLocated } from "react-geolocated";
 
 class Geo extends React.Component {
   state = {
