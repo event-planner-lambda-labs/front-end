@@ -24,9 +24,8 @@ class LocationSearchInput extends React.Component {
   render() {
     return (
       <PlacesAutocomplete
-        value={this.state.address}
-        onChange={this.handleChange}
-        onSelect={this.handleSelect}
+      value={this.state.value}
+      onChange={value => this.setState({ value })}
       >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
