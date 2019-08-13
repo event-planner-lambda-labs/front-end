@@ -1,5 +1,5 @@
 # Go Have Fun
-## An event planner app
+An event planner app
 
 ## What we do at GoHaveFun
 GoHaveFun makes it easier and quickier to find events near you. Events are free and accessible with ease to everyone to host and attend.
