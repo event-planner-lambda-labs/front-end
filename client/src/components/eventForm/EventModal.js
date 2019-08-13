@@ -28,15 +28,11 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
   const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
 
   const handleClose = () => {
     setOpen(false);
@@ -44,13 +40,10 @@ export default function SimpleModal() {
 
   return (
     <div>
-      <button type="button" onClick={handleOpen}>
-        Create an event
-      </button>
       <Modal
         aria-labelledby="simple-modal-title"
         aria-describedby="simple-modal-description"
-        open={open}
+        open={props.open ? true : false}
         onClose={handleClose}
       >
         <div style={modalStyle} className={classes.paper}>
@@ -58,6 +51,7 @@ export default function SimpleModal() {
           <p id="simple-modal-description">
             Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
           </p>
+          <button onClick={() => handleClose()}> Try again? </button>
         </div>
       </Modal>
     </div>

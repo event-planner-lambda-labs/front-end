@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
 //import { compose, withProps } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 //import * as eventsData from "data file for event details";
@@ -96,11 +96,11 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export default function eventMap() {
   return (
     <div style={{ width: "100vw", height: "80vh" }}>
-      <Geo />
+      {/* <Geo /> */}
       <LocationSearchComponent />
       <WrappedMap
         googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw 	"
+          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw"
         }
         loadingElement={<div style={{ height: "100%" }} />}
         containerElement={<div style={{ height: "100%" }} />}

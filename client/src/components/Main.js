@@ -1,9 +1,12 @@
 import React from "react";
 import MapComponent from "./map/MapComponent";
-import SimpleModal from "./eventForm/EventModal";
+import { connect } from "react-redux";
+import { getEvents } from "../store/index";
 
 class Main extends React.Component {
-  // component did mount - get events
+  async componentDidMount() {
+    await this.props.getEvents();
+  }
 
   render() {
     return (
@@ -14,4 +17,13 @@ class Main extends React.Component {
   }
 }
 
-export default Main;
+const mapStateToProps = ({ fetchingEvents, fetchedEvents, events }) => ({
+  fetchingEvents,
+  fetchedEvents,
+  events
+});
+
+export default connect(
+  mapStateToProps,
+  { getEvents }
+)(Main);

@@ -1,4 +1,3 @@
-// import { combineReducers } from "redux";
 import axios from "axios";
 
 const initialState = {
@@ -28,7 +27,7 @@ const initialState = {
   events: [],
   event: [],
   message: "",
-  error: ''
+  error: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -50,10 +49,11 @@ export default function reducer(state = initialState, action) {
         fetching: false,
         message: action.payload
       };
+    // GET USERS //
     case FETCH_USERS_START:
       return {
         ...state,
-        fetchingUsers: true,
+        fetchingUsers: true
       };
     case FETCH_USERS_SUCCESS:
       return {
@@ -68,10 +68,11 @@ export default function reducer(state = initialState, action) {
         fetchingUsers: false,
         error: action.payload
       };
+    // GET USER //
     case FETCH_USER_START:
       return {
         ...state,
-        fetchingUser: true,
+        fetchingUser: true
       };
     case FETCH_USER_SUCCESS:
       return {
@@ -86,10 +87,11 @@ export default function reducer(state = initialState, action) {
         fetchingUser: false,
         error: action.payload
       };
+    // POST USER //
     case POST_USER_START:
       return {
         ...state,
-        postingUser: true,
+        postingUser: true
       };
     case POST_USER_SUCCESS:
       return {
@@ -104,10 +106,11 @@ export default function reducer(state = initialState, action) {
         postingUser: false,
         error: action.payload
       };
+    // PUT USER //
     case UPDATE_USER_START:
       return {
         ...state,
-        updatingUser: true,
+        updatingUser: true
       };
     case UPDATE_USER_SUCCESS:
       return {
@@ -122,10 +125,11 @@ export default function reducer(state = initialState, action) {
         postingUser: false,
         error: action.payload
       };
+    // DELETE USER //
     case DELETE_USER_START:
       return {
         ...state,
-        deletingUser: true,
+        deletingUser: true
       };
     case DELETE_USER_SUCCESS:
       return {
@@ -140,10 +144,11 @@ export default function reducer(state = initialState, action) {
         deletingUser: false,
         error: action.payload
       };
+    // GET ALL EVENTS //
     case FETCH_EVENTS_START:
       return {
         ...state,
-        fetchingEvents: true,
+        fetchingEvents: true
       };
     case FETCH_EVENTS_SUCCESS:
       return {
@@ -158,10 +163,11 @@ export default function reducer(state = initialState, action) {
         fetchingEvents: false,
         error: action.payload
       };
+    // GET EVENT //
     case FETCH_EVENT_START:
       return {
         ...state,
-        fetchingEvent: true,
+        fetchingEvent: true
       };
     case FETCH_EVENT_SUCCESS:
       return {
@@ -176,16 +182,17 @@ export default function reducer(state = initialState, action) {
         fetchingEvent: false,
         error: action.payload
       };
+    // POST EVENT //
     case POST_EVENT_START:
       return {
         ...state,
-        postingEvent: true,
+        postingEvent: true
       };
     case POST_EVENT_SUCCESS:
       return {
         ...state,
         postingEvent: false,
-        postedEvent: true,
+        postedEvent: true
         //not sure what we would want to do with the action payload here
       };
     case POST_EVENT_FAIL:
@@ -194,10 +201,11 @@ export default function reducer(state = initialState, action) {
         postingEvent: false,
         error: action.payload
       };
+    // PUT EVENT //
     case UPDATE_EVENT_START:
       return {
         ...state,
-        updatingEvent: true,
+        updatingEvent: true
       };
     case UPDATE_EVENT_SUCCESS:
       return {
@@ -212,16 +220,17 @@ export default function reducer(state = initialState, action) {
         updatingEvent: false,
         error: action.payload
       };
+    // DELETE EVENT //
     case DELETE_EVENT_START:
       return {
         ...state,
-        deletingEvent: true,
+        deletingEvent: true
       };
     case DELETE_EVENT_SUCCESS:
       return {
         ...state,
         deletingEvent: false,
-        deletedEvent: true,
+        deletedEvent: true
       };
     case DELETE_EVENT_FAIL:
       return {
@@ -234,7 +243,7 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-const Link = "https://labs-event-planner-staging.herokuapp.com/";
+const Link = "https://labs-event-planner-staging.herokuapp.com";
 
 const FETCH_START = "FETCH_START";
 const FETCH_SUCCESS = "FETCH_SUCCESS";
@@ -255,9 +264,9 @@ export const get = () => dispatch => {
 ///////////////////   Users  ////////////////////
 
 // Post User
-const POST_USER_START = 'POST_USER_START';
-const POST_USER_SUCCESS = 'POST_USER_SUCCESS';
-const POST_USER_FAIL = 'POST_USER_FAIL';
+const POST_USER_START = "POST_USER_START";
+const POST_USER_SUCCESS = "POST_USER_SUCCESS";
+const POST_USER_FAIL = "POST_USER_FAIL";
 
 export const postUser = user => dispatch => {
   dispatch({ type: POST_USER_START });
@@ -272,9 +281,9 @@ export const postUser = user => dispatch => {
 };
 
 // Get User by ID
-const FETCH_USER_START = 'FETCH_USER_START';
-const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
-const FETCH_USER_FAIL = 'FETCH_USER_FAIL';
+const FETCH_USER_START = "FETCH_USER_START";
+const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
+const FETCH_USER_FAIL = "FETCH_USER_FAIL";
 
 export const getUserById = id => dispatch => {
   dispatch({ type: FETCH_USER_START });
@@ -289,9 +298,9 @@ export const getUserById = id => dispatch => {
 };
 
 // Get Users
-const FETCH_USERS_START = 'FETCH_USERS_START';
-const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
-const FETCH_USERS_FAIL = 'FETCH_USERS_FAIL';
+const FETCH_USERS_START = "FETCH_USERS_START";
+const FETCH_USERS_SUCCESS = "FETCH_USERS_SUCCESS";
+const FETCH_USERS_FAIL = "FETCH_USERS_FAIL";
 
 export const getUsers = () => dispatch => {
   dispatch({ type: FETCH_USERS_START });
@@ -301,14 +310,14 @@ export const getUsers = () => dispatch => {
       dispatch({ type: FETCH_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: FETCH_USERS_FAIL, payload: err.response.data.message });
+      dispatch({ type: FETCH_USERS_FAIL, payload: err });
     });
 };
 
 // Update User
-const UPDATE_USER_START = 'UPDATE_USER_START';
-const UPDATE_USER_SUCCESS = 'UPDATE_USER_SUCCESS';
-const UPDATE_USER_FAIL = 'UPDATE_USER_FAIL';
+const UPDATE_USER_START = "UPDATE_USER_START";
+const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
+const UPDATE_USER_FAIL = "UPDATE_USER_FAIL";
 
 export const updateUser = (id, user) => dispatch => {
   dispatch({ type: UPDATE_USER_START });
@@ -323,9 +332,9 @@ export const updateUser = (id, user) => dispatch => {
 };
 
 // Delete User
-const DELETE_USER_START = 'DELETE_USER_START';
-const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS';
-const DELETE_USER_FAIL = 'DELETE_USER_FAIL';
+const DELETE_USER_START = "DELETE_USER_START";
+const DELETE_USER_SUCCESS = "DELETE_USER_SUCCESS";
+const DELETE_USER_FAIL = "DELETE_USER_FAIL";
 
 export const deleteUser = id => dispatch => {
   dispatch({ type: DELETE_USER_START });
@@ -342,9 +351,9 @@ export const deleteUser = id => dispatch => {
 ///////////////////   Events ///////////////////
 
 //  Get All events
-const FETCH_EVENTS_START = 'FETCH_EVENTS_START';
-const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
-const FETCH_EVENTS_FAIL = 'FETCH_EVENTS_FAIL';
+const FETCH_EVENTS_START = "FETCH_EVENTS_START";
+const FETCH_EVENTS_SUCCESS = "FETCH_EVENTS_SUCCESS";
+const FETCH_EVENTS_FAIL = "FETCH_EVENTS_FAIL";
 
 export const getEvents = () => dispatch => {
   dispatch({ type: FETCH_EVENTS_START });
@@ -354,14 +363,14 @@ export const getEvents = () => dispatch => {
       dispatch({ type: FETCH_EVENTS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: FETCH_EVENTS_FAIL, payload: err.response.data.message });
+      dispatch({ type: FETCH_EVENTS_FAIL, payload: err });
     });
 };
 
 // Get Event by Id
-const FETCH_EVENT_START = 'FETCH_EVENT_START';
-const FETCH_EVENT_SUCCESS = 'FETCH_EVENT_SUCCESS';
-const FETCH_EVENT_FAIL = 'FETCH_EVENT_FAIL';
+const FETCH_EVENT_START = "FETCH_EVENT_START";
+const FETCH_EVENT_SUCCESS = "FETCH_EVENT_SUCCESS";
+const FETCH_EVENT_FAIL = "FETCH_EVENT_FAIL";
 
 export const getEventById = id => dispatch => {
   dispatch({ type: FETCH_EVENT_START });
@@ -376,9 +385,9 @@ export const getEventById = id => dispatch => {
 };
 
 // Post an Event
-const POST_EVENT_START = 'POST_EVENT_START';
-const POST_EVENT_SUCCESS = 'POST_EVENT_SUCCESS';
-const POST_EVENT_FAIL = 'POST_EVENT_FAIL';
+const POST_EVENT_START = "POST_EVENT_START";
+const POST_EVENT_SUCCESS = "POST_EVENT_SUCCESS";
+const POST_EVENT_FAIL = "POST_EVENT_FAIL";
 
 export const postEvent = event => dispatch => {
   dispatch({ type: POST_EVENT_START });
@@ -388,14 +397,14 @@ export const postEvent = event => dispatch => {
       dispatch({ type: POST_EVENT_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: POST_EVENT_FAIL, payload: err.response.data.message })
-    })
-}
+      dispatch({ type: POST_EVENT_FAIL, payload: err });
+    });
+};
 
 // Update an Event
-const UPDATE_EVENT_START = 'UPDATE_EVENT_START';
-const UPDATE_EVENT_SUCCESS = 'UPDATE_EVENT_SUCCESS';
-const UPDATE_EVENT_FAIL = 'UPDATE_EVENT_FAIL';
+const UPDATE_EVENT_START = "UPDATE_EVENT_START";
+const UPDATE_EVENT_SUCCESS = "UPDATE_EVENT_SUCCESS";
+const UPDATE_EVENT_FAIL = "UPDATE_EVENT_FAIL";
 
 export const updateEvent = (id, event) => dispatch => {
   dispatch({ type: UPDATE_EVENT_START });
@@ -405,14 +414,14 @@ export const updateEvent = (id, event) => dispatch => {
       dispatch({ type: UPDATE_EVENT_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: UPDATE_EVENT_FAIL, payload: err.response.data.message })
-    })
-}
+      dispatch({ type: UPDATE_EVENT_FAIL, payload: err.response.data.message });
+    });
+};
 
 // Delete an event
-const DELETE_EVENT_START = 'DELETE_EVENT_START';
-const DELETE_EVENT_SUCCESS = 'DELETE_EVENT_SUCCESS';
-const DELETE_EVENT_FAIL = 'DELETE_EVENT_FAIL';
+const DELETE_EVENT_START = "DELETE_EVENT_START";
+const DELETE_EVENT_SUCCESS = "DELETE_EVENT_SUCCESS";
+const DELETE_EVENT_FAIL = "DELETE_EVENT_FAIL";
 
 export const deleteEvent = id => dispatch => {
   dispatch({ type: DELETE_EVENT_START });
@@ -422,12 +431,6 @@ export const deleteEvent = id => dispatch => {
       dispatch({ type: DELETE_EVENT_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: DELETE_EVENT_FAIL, payload: err.response.data.message })
-    })
-}
-
-// import componentReducerName from "./place"
-
-// export default combineReducers({
-//     name: componetReducerName,
-// })
+      dispatch({ type: DELETE_EVENT_FAIL, payload: err.response.data.message });
+    });
+};

@@ -3,18 +3,20 @@ import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
-import AppBar from "material-ui/AppBar";
 
 export class EventForm extends Component {
   state = {
     step: 1,
-    title: "",
-    location: "",
-    eventTime: "",
-    eventDate: "",
-    shortDetails: "",
-    longDetails: "",
-    publicStatus: true
+    newEvent: {
+      title: "",
+      location: "",
+      event_time: "",
+      event_date: "",
+      short_details: "",
+      long_details: "",
+      public_status: true,
+      host_id: 1 // test, need to pass in host_id
+    }
   };
 
   //Proceed to next step
@@ -36,36 +38,38 @@ export class EventForm extends Component {
   };
 
   //Handle Change
-
   handleChange = input => e => {
-    this.setState({ [input]: e.target.value });
+    this.setState({ newEvent: { ...this.state.newEvent, [input]: e.target.value } });
   };
 
   //Checkbox
-  handleChange = publicStatus => event => {
-    this.setState({ [publicStatus]: event.target.checked });
+  togglePublicStatus = () => {
+    this.setState({ public_status: !this.state.newEvent.public_status });
   };
 
   render() {
+    console.log(this.state.newEvent);
     const { step } = this.state;
     const {
       title,
       location,
-      eventTime,
-      eventDate,
-      shortDetails,
-      longDetails,
-      publicStatus
-    } = this.state;
+      event_time,
+      event_date,
+      short_details,
+      long_details,
+      public_status,
+      host_id
+    } = this.state.newEvent;
 
     const values = {
       title,
       location,
-      eventTime,
-      eventDate,
-      shortDetails,
-      longDetails,
-      publicStatus
+      event_time,
+      event_date,
+      short_details,
+      long_details,
+      public_status,
+      host_id
     };
 
     switch (step) {
@@ -79,11 +83,19 @@ export class EventForm extends Component {
             nextStep={this.nextStep}
             prevStep={this.prevStep}
             handleChange={this.handleChange}
+            togglePublicStatus={this.togglePublicStatus}
             values={values}
           />
         );
       case 3:
-        return <Confirm nextStep={this.nextStep} prevStep={this.prevStep} values={values} />;
+        return (
+          <Confirm
+            nextStep={this.nextStep}
+            prevStep={this.prevStep}
+            values={values}
+            newEvent={this.state.newEvent}
+          />
+        );
       case 4:
         return <Success />;
       default:

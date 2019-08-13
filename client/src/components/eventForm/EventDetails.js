@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import AppBar from "material-ui/AppBar";
-import TextField from "material-ui/TextField";
-import RaisedButton from "material-ui/RaisedButton";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 export class EventDetails extends Component {
   continue = e => {
@@ -13,43 +13,47 @@ export class EventDetails extends Component {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>
-        <React.Fragment>
+        <form className="createEventForm">
           <AppBar title="Enter Event Details" />
           <TextField
             hintText="Enter Your Event Title"
-            floatingLabelText="Event Title"
+            label="Event Title"
             onChange={handleChange("title")}
-            defaultValue={values.title}
+            value={values.title}
+            required
           />
           <br />
           <TextField
-            hintText="Enter Your Event Location"
-            floatingLabelText="Event Location"
+            label="Event Location"
             onChange={handleChange("location")}
-            defaultValue={values.location}
+            value={values.location}
+            required
           />
           <br />
           <TextField
-            hintText="Enter Your Event Time"
-            floatingLabelText="Event Time"
-            onChange={handleChange("eventTime")}
-            defaultValue={values.eventTime}
+            label="Event Time"
+            onChange={handleChange("event_time")}
+            value={values.event_time}
+            required
           />
           <br />
           <TextField
-            hintText="Enter Your Event Date"
-            floatingLabelText="Event Date"
-            onChange={handleChange("eventDate")}
-            defaultValue={values.eventDate}
+            label="Event Date"
+            onChange={handleChange("event_date")}
+            value={values.event_date}
+            required
           />
           <br />
-          <RaisedButton
+          <Button
             label="Continue"
+            variant="contained"
             primary={true}
             styles={styles.button}
             onClick={this.continue}
-          />
-        </React.Fragment>
+          >
+            Continue
+          </Button>
+        </form>
       </MuiThemeProvider>
     );
   }
