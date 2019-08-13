@@ -29,6 +29,8 @@ export default class App extends React.Component {
         <Route path="/main" component={Main} />
         <Route path="/redirect" render={props => <Redirect {...props} lock={this.lock} />} />
         <PrivateRoute path="/createEvent" component={EventForm} />
+        <Header />
+        <Content /> 
       </div>
     );
   }
