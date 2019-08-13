@@ -68,6 +68,7 @@
   
   h2 {
     color: #6C648B;
+    font-size: 2em;
   }
   
   p {
@@ -115,10 +116,18 @@
   
   }
 
-  .team {
+  .team-row {
       display: flex;
-      justify-content: flex-start;
-      flex-wrap: wrap;
+      justify-content: center;
+      
+      
+  }
+
+  .team {
+      text-align: center;
+      justify-content: center;
+      padding: 10px;
+      
   }
 
   .teamPic {
@@ -127,10 +136,9 @@
     max-width: 100%;
     height: auto;
     padding: 20px;
-    flex-direction: row;
     height: 300px;
     width: 300px;
     overflow: hidden;
     
-  }
-  
+}
+

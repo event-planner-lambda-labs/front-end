@@ -11,7 +11,7 @@ class Header extends Component {
             <h1>Go Have Fun</h1>
             <div>
               <p>Integer posuere leo non erat ornare dictum id vitae magna. Proin consectetur iaculis nisi, ut convallis tortor tempor congue. Curabitur sit amet tempus felis. Duis tellus eros, pellentesque at rhoncus eu, maximus ut diam.</p>
-          <button className="contact"Contact>Start Having Fun Now</button>
+          <button className="contact"Contact>FIND AN EVENT</button>
             </div>
         </div>
        

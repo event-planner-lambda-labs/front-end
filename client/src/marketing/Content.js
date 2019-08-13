@@ -3,19 +3,57 @@ import Anne from "../anne.png";
 import Dani from "../dani.png";
 import Preston from "../preston.jpg";
 import David from "../david.jpg";
+import Mike from "../mike.png";
 
 class Content extends Component {
   render() {
     return (
       <main>
         <section className="intro">
-          <h2>About Us</h2>
-          <div className="team">
-          <img className="teamPic" src={Preston} alt="" />
-          <img className="teamPic" src={David} alt="" />
-            <img className="teamPic" src={Anne} alt="" />
-            <img className="teamPic" src={Dani} alt="" />
+          <h1>About Us</h1>
+
+          <div className="team-row">
+            <div className="team">
+              <img className="teamPic" src={Preston} alt="" />
+              <h3>Preston Burton</h3>
+              <p>Team Lead / FullStack Developer</p>
+              <a href="https://github.com/Oliver-Strange">https://github.com/Oliver-Strange</a>
+            </div>
+            </div>
+
+            <div className="team-row">
+            <div className="team">
+              <img className="teamPic" src={David} alt="" />
+              <h3>David Barrios</h3>
+              <p>FullStack Developer</p>
+              <a href="https://github.com/dbarrios13">https://github.com/dbarrios13</a>
+            </div>
+
+            <div className="team">
+              <img className="teamPic" src={Anne} alt="" />
+              <h3>Anne Tolmie</h3>
+              <p>FullStack Developer</p>
+              <a href="https://github.com/atolmie">https://github.com/atolmie</a>
+            </div>
           </div>
+          
+
+          <div className="team-row">
+            <div className="team">
+              <img className="teamPic" src={Dani} alt="" />
+              <h3>Danielle O'Neal</h3>
+              <p>FullStack Developer</p>
+              <a href="https://github.com/droneal11015">https://github.com/droneal11015</a>
+            </div>
+
+            <div className="team">
+              <img className="teamPic" src={Mike} alt="" />
+              <h3>Micheal Del Zotto</h3>
+              <p>FullStack Developer</p>
+              <a href="https://github.com/mdelzotto">https://github.com/mdelzotto</a>
+            </div>
+          </div>
+
           <div>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
