@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 //import { compose, withProps } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 //import * as eventsData from "data file for event details";
 import mapStyles from "../../styles/MapStyles";
-import Geo from "./GeoComponent";
-import LocationSearchComponent from "./LocationSearchComponent";
+//import Geo from "./GeoComponent";
+
+import LocationSearchInput from "./LocationSearchComponent";
+
 
 function Map() {
   //setting up to display event detail boxes when clicking markers
@@ -64,14 +66,15 @@ function Map() {
               scaledSize: new window.google.maps.Size(25, 25)
             }}
           />
+         
         ))}
 
         {selectedEvent && (
           //displays data from database based on selected park
           <InfoWindow
             position={{
-              lat: selectedEvent.geometry.coordinates[1],
-              lng: selectedEvent.geometry.coordinates[0]
+              lat: selectedEvent.event.location[1],
+              lng: selectedEvent.event.location[0]
             }}
             //sets default state back to null when closing event details
             onCloseClick={() => {
@@ -79,10 +82,10 @@ function Map() {
             }}
           >
             <div>
-              <h3>{selectedEvent.properties.TITLE}</h3>
-              <p>{selectedEvent.properties.SHORT_DETAILS}</p>
-              <p>{selectedEvent.properties.EVENT_DATE}</p>
-              <p>{selectedEvent.properties.EVENT_TIME}</p>
+              <h3>{selectedEvent.properties.title}</h3>
+              <p>{selectedEvent.properties.shortDetails}</p>
+              <p>{selectedEvent.properties.eventDate}</p>
+              <p>{selectedEvent.properties.eventTime}</p>
             </div>
           </InfoWindow>
         )}
@@ -95,12 +98,12 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function eventMap() {
   return (
-    <div style={{ width: "100vw", height: "80vh" }}>
+    <div style={{ width: "100vw", height: "70vh" }}>
       {/* <Geo /> */}
-      <LocationSearchComponent />
+      <LocationSearchInput/>
       <WrappedMap
         googleMapURL={
-          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw"
+          "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw 	"
         }
         loadingElement={<div style={{ height: "100%" }} />}
         containerElement={<div style={{ height: "100%" }} />}

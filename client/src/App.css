@@ -31,3 +31,30 @@
     transform: rotate(360deg);
   }
 }
+
+.location-search-input {
+ 
+  width: 33%;
+  height: 30px;
+  margin-top: 2px;
+  font-family: "Arial", Helvetica, sans-serif;
+}
+
+
+.location-div {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  justify-items: center; */
+  align-items: center;
+  background-color:#96CEDA;
+  height: 150px;
+  
+}
+
+.autocomplete-dropdown-container {
+  width: 33%;
+  text-align: left;
+
+  
+}
