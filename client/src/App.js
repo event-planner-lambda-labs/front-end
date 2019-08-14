@@ -35,15 +35,3 @@ export default class App extends React.Component {
     );
   }
 }
-<<<<<<< HEAD
-
-const mapStateToProps = ({ message }) => ({
-  message
-});
-
-export default connect(
-  mapStateToProps,
-  { get }
-)(App);
-=======
->>>>>>> 0929fc0e245b043cc16091ec9cf8543d42fe8796
