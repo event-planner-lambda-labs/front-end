@@ -20,6 +20,9 @@ class Content extends Component {
               <a href="https://github.com/Oliver-Strange">
                 <i className="fab fa-github" />
               </a>
+              <a href="https://www.linkedin.com/in/preston-burton-447108186/">
+                <i className="fab fa-linkedin-in" />
+              </a>
             </div>
           </div>
 
@@ -31,6 +34,9 @@ class Content extends Component {
               <a href="https://github.com/dbarrios13">
                 <i className="fab fa-github" />
               </a>
+              <a href="https://www.linkedin.com/in/david-a-barrios/">
+                <i className="fab fa-linkedin-in" />
+              </a>
             </div>
 
             <div className="team">
@@ -39,6 +45,9 @@ class Content extends Component {
               <p>FullStack Developer</p>
               <a href="https://github.com/atolmie">
                 <i className="fab fa-github" />
+              </a>
+              <a href="https://www.linkedin.com/in/anne-tolmie-7799434a/">
+                <i className="fab fa-linkedin-in" />
               </a>
             </div>
           </div>
@@ -51,6 +60,9 @@ class Content extends Component {
               <a href="https://github.com/droneal11015">
                 <i className="fab fa-github" />
               </a>
+              <a href="https://www.linkedin.com/in/danielleoneal/">
+                <i className="fab fa-linkedin-in" />
+              </a>
             </div>
 
             <div className="team">
@@ -59,6 +71,9 @@ class Content extends Component {
               <p>FullStack Developer</p>
               <a href="https://github.com/mdelzotto">
                 <i className="fab fa-github" />
+              </a>
+              <a href="https://www.linkedin.com/in/michaeldelzotto/">
+                <i className="fab fa-linkedin-in" />
               </a>
             </div>
           </div>
