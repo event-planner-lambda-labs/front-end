@@ -13,7 +13,7 @@ export class EventDetails extends Component {
     const { values, handleChange } = this.props;
     return (
       <MuiThemeProvider>
-        <form className="createEventForm">
+        <form>
           <AppBar title="Enter Event Details" />
           <TextField
             hintText="Enter Your Event Title"
@@ -31,18 +31,16 @@ export class EventDetails extends Component {
           />
           <br />
           <TextField
-            // label="Event Time"
-            type="time"
-            onChange={handleChange("event_time")}
-            value={values.event_time}
+            label="Event Time"
+            onChange={handleChange("eventTime")}
+            value={values.eventTime}
             required
           />
           <br />
           <TextField
-            //label="Event Date"
-            type="date"
-            onChange={handleChange("event_date")}
-            value={values.event_date}
+            label="Event Date"
+            onChange={handleChange("eventDate")}
+            value={values.eventDate}
             required
           />
           <br />
@@ -52,7 +50,7 @@ export class EventDetails extends Component {
             primary={true}
             styles={styles.button}
             onClick={this.continue}
-          >
+            >
             Continue
           </Button>
         </form>
