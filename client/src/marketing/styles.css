@@ -1,5 +1,5 @@
 .App {
-    font-family: sans-serif;
+    font-family: Univers;
     text-align: center;
   }
   
@@ -142,3 +142,7 @@
     
 }
 
+.headerPic {
+   height: 300px;
+   width: 100%;
+}
