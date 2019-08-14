@@ -6,6 +6,13 @@ import mapStyles from "../../styles/MapStyles";
 import Geo from "./GeoComponent";
 import LocationSearchComponent from "./LocationSearchComponent";
 
+const dummyData = [
+  {
+    lat: 39.063555,
+    lng: -94.583268
+  }
+];
+
 function Map() {
   //setting up to display event detail boxes when clicking markers
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -13,32 +20,6 @@ function Map() {
   //function for geolocation unsure if correct in usage here, may be able to implement without making it a function?
 
   //default map renders to ground 0, eventsData and id can be confirmed/updated once event dataset array is built out
-  const dummyData = [
-    {
-      lat: 39.063555,
-      lng: -94.583268
-    },
-    {
-      lat: 39.95233,
-      lng: -75.16379
-    },
-    {
-      lat: 39.045,
-      lng: -94.586
-    },
-    {
-      lat: 39.0073,
-      lng: -94.5295
-    },
-    {
-      lat: 39.463598,
-      lng: -94.583232
-    },
-    {
-      lat: 39.263559,
-      lng: -94.583252
-    }
-  ];
 
   return (
     <body className="google-map">
@@ -70,8 +51,8 @@ function Map() {
           //displays data from database based on selected park
           <InfoWindow
             position={{
-              lat: selectedEvent.geometry.coordinates[1],
-              lng: selectedEvent.geometry.coordinates[0]
+              lat: selectedEvent.events.lat,
+              lng: selectedEvent.events.lng
             }}
             //sets default state back to null when closing event details
             onCloseClick={() => {
@@ -96,7 +77,6 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 export default function eventMap() {
   return (
     <div style={{ width: "100vw", height: "80vh" }}>
-      {/* <Geo /> */}
       <LocationSearchComponent />
       <WrappedMap
         googleMapURL={

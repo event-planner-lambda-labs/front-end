@@ -25,7 +25,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <NavBar lock={this.lock} />
-        <Route path="/welcome" component={LandingPage} />
+        <Route exact path="/" component={LandingPage} />
         <Route path="/main" component={Main} />
         <Route path="/redirect" render={props => <Redirect {...props} lock={this.lock} />} />
         <PrivateRoute path="/createEvent" component={EventForm} />

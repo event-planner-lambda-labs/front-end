@@ -7,6 +7,7 @@ class Geo extends React.Component {
     },
     userDecisionTimeout: 5000
   };
+
   render() {
     return !this.props.isGeolocationAvailable ? (
       <div>Your browser does not support Geolocation</div>
