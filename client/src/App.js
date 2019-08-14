@@ -7,6 +7,9 @@ import Main from "./components/Main";
 import Auth0Lock from "auth0-lock";
 import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
+import Header from "./marketing/Header";
+import Content from "./marketing/Content";
+import "../src/marketing/styles.css";
 
 const link = window.location.origin;
 
@@ -29,6 +32,8 @@ export default class App extends React.Component {
         <Route path="/main" component={Main} />
         <Route path="/redirect" render={props => <Redirect {...props} lock={this.lock} />} />
         <PrivateRoute path="/createEvent" component={EventForm} />
+        <Header />
+        <Content /> 
       </div>
     );
   }
