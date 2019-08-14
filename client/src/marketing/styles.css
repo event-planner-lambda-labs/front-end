@@ -57,7 +57,7 @@ div.services {
   width: 70%;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 auto;
-  padding-top: 12%;
+  padding-top: 5%;
   align-items: center;
 }
 
@@ -134,4 +134,13 @@ header div.head p {
   height: 300px;
   width: 300px;
   overflow: hidden;
+}
+
+.teamPic:hover {
+  filter: none;
+}
+
+.headerPic {
+  height: 300px;
+  width: 100%;
 }

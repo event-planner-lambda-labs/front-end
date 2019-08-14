@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import Fun from "../fun.jpg";
 
 class Header extends Component {
   btnClicked = path => {
@@ -12,6 +13,7 @@ class Header extends Component {
   render() {
     return (
       <header className="landingHeader">
+        <img className="headerPic" src={Fun} alt="" />
         <div className="head">
           <h1>Go Have Fun</h1>
           <div>
