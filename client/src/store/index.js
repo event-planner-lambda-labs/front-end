@@ -310,7 +310,7 @@ export const getUsers = () => dispatch => {
       dispatch({ type: FETCH_USERS_SUCCESS, payload: res.data });
     })
     .catch(err => {
-      dispatch({ type: FETCH_USERS_FAIL, payload: err.response.data.message });
+      dispatch({ type: FETCH_USERS_FAIL, payload: err });
     });
 };
 

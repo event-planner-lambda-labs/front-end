@@ -31,14 +31,16 @@ export class EventDetails extends Component {
           />
           <br />
           <TextField
-            label="Event Time"
+            // label="Event Time"
+            type="time"
             onChange={handleChange("event_time")}
             value={values.event_time}
             required
           />
           <br />
           <TextField
-            label="Event Date"
+            //label="Event Date"
+            type="date"
             onChange={handleChange("event_date")}
             value={values.event_date}
             required

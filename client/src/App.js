@@ -5,13 +5,15 @@ import { get } from "./reducers/index";
 import MapContainer from "./components/google-map"
 =======
 import PrivateRoute from "./auth/PrivateRoute";
-import NavBar from "./components/NavBar";
-import LandingPage from "./components/LandingPage";
+import NavBar from "./components/Navbar.js";
+import Landing from "./components/LandingPage";
 import Main from "./components/Main";
 import Auth0Lock from "auth0-lock";
 import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
 >>>>>>> 0929fc0e245b043cc16091ec9cf8543d42fe8796
+
+import "./index.css";
 
 const link = window.location.origin;
 
@@ -30,7 +32,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <NavBar lock={this.lock} />
-        <Route path="/welcome" component={LandingPage} />
+        <Route exact path="/" component={Landing} />
         <Route path="/main" component={Main} />
         <Route path="/redirect" render={props => <Redirect {...props} lock={this.lock} />} />
         <PrivateRoute path="/createEvent" component={EventForm} />

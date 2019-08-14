@@ -67,12 +67,12 @@ class NavBar extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <Drawer open={this.state.isOpen}>
-          <IconButton onClick={this.handleBtn}>
+        <Drawer open={this.state.isOpen} className='navDrawer'>
+          <IconButton onClick={this.handleBtn} className='drawerBtn'>
             <ChevronLeft />
           </IconButton>
           <List>
-            <ListItem button onClick={() => this.btnClicked("createEvent")}>
+            <ListItem button onClick={() => this.btnClicked("createEvent")} className='drawerBtn'>
               <ListItemText primary="Add Event" />
             </ListItem>
           </List>
