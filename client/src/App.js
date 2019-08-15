@@ -8,6 +8,8 @@ import Auth0Lock from "auth0-lock";
 import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
 
+import "./index.css";
+
 const link = window.location.origin;
 
 export default class App extends React.Component {
