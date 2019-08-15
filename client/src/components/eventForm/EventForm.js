@@ -4,7 +4,7 @@ import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
 
-export class EventForm extends Component {
+class EventForm extends Component {
   state = {
     step: 1,
     newEvent: {
