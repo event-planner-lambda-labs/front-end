@@ -1,5 +1,6 @@
 import React from "react";
 import PlacesAutocomplete, {
+    geocodeByPlaceId,
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
