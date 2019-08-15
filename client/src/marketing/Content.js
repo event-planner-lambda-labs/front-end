@@ -79,9 +79,7 @@ class Content extends Component {
           </div>
 
           <div>
-            <p>
-              We are all Lambda School students. 
-            </p>
+            <p>We are all Lambda School students.</p>
           </div>
         </section>
 
@@ -124,37 +122,40 @@ class Content extends Component {
           </div>
         </div>
 
-        <section className="Mission">
-          <h2>Our Mission</h2>
-          <div>
-            <p>
-              Put simply, our main focus was to bring a simple, fast way to connect our
-              users to events. 
-              
-             We also wanted to create something that users wanted. </p>
-            
-              <p>We sent out a survey and based on user feeback, there were three things we wanted to ensure we did: </p>
+        <div className="Mission">
+          <section>
+            <h2>Our Mission</h2>
+            <div>
               <p>
-              <li>
-                Events are easily and quickly found around where a user is
-                located.
-              </li>
-              <li>
-                Events can always be free and accessible with ease to everyone
-                to host and attend.
-              </li>
-              <li>
-                Events have no dependencies like groups - they are free and
-                quick to setup.
-              </li>
-            </p>
-          </div>
-        </section>
+                Put simply, our main focus was to bring a simple, fast way to
+                connect our users to events. We also wanted to create something
+                that users wanted.We sent out a survey and based on user feeback, there were three
+                things we wanted to ensure we did:
+              
+              
+                <li>
+                  Events are easily and quickly found around where a user is
+                  located.
+                </li>
+                <li>
+                  Events can always be free and accessible with ease to everyone
+                  to host and attend.
+                </li>
+                <li>
+                  Events have no dependencies like groups - they are free and
+                  quick to setup.
+                </li>
+              </p>
+            </div>
+          </section>
+        </div>
 
-        <section>
-          <h2>Contact Us</h2>
-          <p>labs.eventplanner@gmail.com</p>
-        </section>
+        <div className="contactUsWrapper">
+          <section className="contactUs">
+            <h2>Contact Us</h2>
+            <p>labs.eventplanner@gmail.com</p>
+          </section>
+        </div>
       </main>
     );
   }
