@@ -80,10 +80,7 @@ class Content extends Component {
 
           <div>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel gravida nisi.
-              Vestibulum ac consequat lorem. In in mi massa. Donec ut tellus sit amet sem ornare
-              fermentum at et nunc. Pellentesque ac elementum metus. Praesent non venenatis lacus.
-              In sagittis urna in nulla sagittis mattis.
+              We are all Lambda School students. 
             </p>
           </div>
         </section>
@@ -96,8 +93,9 @@ class Content extends Component {
               </p>
               <p className="service-title">Planning</p>
               <p>
-                Mauris vitae turpis ut sem blandit consequat et at ligula. Suspendisse quam lectus,
-                tristique dapibus sapien et, tempus suscipit nisl.
+                Our team utilized a product vision board to plan our
+                application. Next we created three feature canvases and assigned
+                tickets based on what features we necessary for each canvas.
               </p>
             </div>
             <div className="service-two">
@@ -106,8 +104,11 @@ class Content extends Component {
               </p>
               <p className="service-title">Design</p>
               <p>
-                Nulla eu metus faucibus, vehicula tortor quis, venenatis odio. Nullam purus mauris,
-                feugiat in odio vitae, posuere volutpat libero. Sed et convallis libero.
+                Our goal was to have a product design that was simple,
+                functional, responsive, and easy to use. Based on our research,
+                we determined that we would be designing an application for
+                users who were interested in attending events and hosting
+                events.
               </p>
             </div>
             <div className="service-three">
@@ -116,36 +117,43 @@ class Content extends Component {
               </p>
               <p className="service-title">Development</p>
               <p>
-                Ut ornare vitae enim a rhoncus. Nullam aliquet tristique scelerisque. Sed volutpat
-                dictum risus ac laoreet. Suspendisse id lorem in enim sollicitudin varius.
+                We utilized the following in creating our application: React,
+                Node JS, PostgresSQL, Auth0, Google Maps API, and Material UI.
               </p>
             </div>
           </div>
         </div>
 
-        <section>
+        <section className="Mission">
           <h2>Our Mission</h2>
           <div>
             <p>
-              Integer sit amet venenatis erat. Cras elementum tortor odio, sit amet euismod nunc
-              cursus ut. Donec sollicitudin orci sed enim volutpat, volutpat rutrum magna semper.
-              Fusce leo lacus, pulvinar sit amet dignissim in, consectetur eget nulla. Etiam ac
-              turpis augue. Sed tincidunt pulvinar tincidunt. Integer ac blandit magna. Nulla
-              dapibus convallis luctus.{" "}
-            </p>
-            <p>
-              Ut elementum urna sit amet elit egestas hendrerit. Vivamus quis sem fringilla,
-              tincidunt nisi non, congue libero. Etiam cursus nulla quis sapien varius, eget
-              accumsan augue mattis. Cras accumsan sapien nulla, eu eleifend odio tempus sit amet.
-              Suspendisse gravida hendrerit sapien, ut molestie mi pellentesque eget. Aliquam
-              eleifend velit vel libero elementum, vitae consectetur nisl sollicitudin. Suspendisse
-              volutpat fringilla vehicula.
+              Put simply, our main focus was to bring a simple, fast way to connect our
+              users to events. 
+              
+             We also wanted to create something that users wanted. </p>
+            
+              <p>We sent out a survey and based on user feeback, there were three things we wanted to ensure we did: </p>
+              <p>
+              <li>
+                Events are easily and quickly found around where a user is
+                located.
+              </li>
+              <li>
+                Events can always be free and accessible with ease to everyone
+                to host and attend.
+              </li>
+              <li>
+                Events have no dependencies like groups - they are free and
+                quick to setup.
+              </li>
             </p>
           </div>
         </section>
 
         <section>
           <h2>Contact Us</h2>
+          <p>labs.eventplanner@gmail.com</p>
         </section>
       </main>
     );

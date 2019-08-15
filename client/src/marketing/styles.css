@@ -68,6 +68,7 @@ h2 {
 
 p {
   color: #6c648b;
+  padding:10px;
 }
 
 i {
@@ -144,3 +145,13 @@ header div.head p {
   height: 300px;
   width: 100%;
 }
+
+.slogan {
+  font-size: 2em;
+}
+
+li {
+  padding: 5px; 
+  list-style-type: upper-roman;
+}
+
