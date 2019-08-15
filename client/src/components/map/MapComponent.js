@@ -4,6 +4,7 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "reac
 //import * as eventsData from "data file for event details";
 import mapStyles from "../../styles/MapStyles";
 //import Geo from "./GeoComponent";
+import { connect } from "react-redux";
 
 import LocationSearchInput from "./LocationSearchComponent";
 
@@ -28,6 +29,7 @@ function Map() {
         defaultZoom={18}
         defaultCenter={{ lat: 39.063555, lng: -94.583268 }}
         defaultOptions={{ styles: mapStyles }}
+        panTo={{ lat: 39.063555, lng: -94.583268 }}
       >
         {dummyData.map(events => (
           <Marker
@@ -75,7 +77,7 @@ function Map() {
 
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
-export default function eventMap() {
+function eventMap() {
   return (
     <div style={{ width: "100vw", height: "70vh" }}>
       {/* <Geo /> */}
@@ -91,3 +93,10 @@ export default function eventMap() {
     </div>
   );
 }
+
+const mapStateToProps = ({ events }) => ({ events });
+
+export default connect(
+  mapStateToProps,
+  {}
+)(eventMap);

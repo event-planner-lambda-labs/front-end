@@ -13,7 +13,7 @@ class Header extends Component {
   render() {
     return (
       <header className="landingHeader">
-        <img className="headerPic" src={Fun} alt="" />
+        {/* <img className="headerPic" src={Fun} alt="" /> */}
         <div className="head">
           <h1>Go Have Fun</h1>
           <div>

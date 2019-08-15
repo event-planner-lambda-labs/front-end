@@ -3,6 +3,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import LocationSearchInput from "../map/LocationSearchComponent";
 
 export class EventDetails extends Component {
   continue = e => {
@@ -16,7 +17,7 @@ export class EventDetails extends Component {
         <form className="createEventForm">
           <AppBar title="Enter Event Details" />
           <TextField
-            hintText="Enter Your Event Title"
+            hint="Enter Your Event Title"
             label="Event Title"
             onChange={handleChange("title")}
             value={values.title}
@@ -29,6 +30,7 @@ export class EventDetails extends Component {
             value={values.location}
             required
           />
+          <LocationSearchInput onChange={handleChange("location")} value={values.location} />
           <br />
           <TextField
             // label="Event Time"

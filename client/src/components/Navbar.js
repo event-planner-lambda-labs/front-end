@@ -55,7 +55,7 @@ class NavBar extends React.Component {
   render() {
     return (
       <>
-        <AppBar position="static">
+        <AppBar position="static" className="navbar">
           <Toolbar>
             <IconButton edge="start" onClick={this.handleBtn}>
               <Menu />
@@ -67,12 +67,12 @@ class NavBar extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <Drawer open={this.state.isOpen} className='navDrawer'>
-          <IconButton onClick={this.handleBtn} className='drawerBtn'>
+        <Drawer open={this.state.isOpen} className="navDrawer">
+          <IconButton onClick={this.handleBtn} className="drawerBtn">
             <ChevronLeft />
           </IconButton>
           <List>
-            <ListItem button onClick={() => this.btnClicked("createEvent")} className='drawerBtn'>
+            <ListItem button onClick={() => this.btnClicked("createEvent")} className="drawerBtn">
               <ListItemText primary="Add Event" />
             </ListItem>
           </List>
