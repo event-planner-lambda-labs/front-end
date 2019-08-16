@@ -67,7 +67,7 @@ class Content extends Component {
 
             <div className="team">
               <img className="teamPic" src={Mike} alt="" />
-              <h3>Micheal Del Zotto</h3>
+              <h3>Michael Del Zotto</h3>
               <p>FullStack Developer</p>
               <a href="https://github.com/mdelzotto">
                 <i className="fab fa-github" />
@@ -77,10 +77,6 @@ class Content extends Component {
               </a>
             </div>
           </div>
-
-          <div>
-            <p>We are all Lambda School students.</p>
-          </div>
         </section>
 
         <div>
@@ -89,34 +85,30 @@ class Content extends Component {
               <p className="service-icon">
                 <i className="far fa-calendar-alt" />
               </p>
-              <p className="service-title">Planning</p>
+              <p className="service-title">Current Features</p>
               <p>
-                Our team utilized a product vision board to plan our
-                application. Next we created three feature canvases and assigned
-                tickets based on what features we necessary for each canvas.
+                Login
+                Create Event 
               </p>
             </div>
             <div className="service-two">
               <p className="service-icon">
                 <i className="fas fa-crop" />
               </p>
-              <p className="service-title">Design</p>
+              <p className="service-title">Future Features</p>
               <p>
-                Our goal was to have a product design that was simple,
-                functional, responsive, and easy to use. Based on our research,
-                we determined that we would be designing an application for
-                users who were interested in attending events and hosting
-                events.
+                Business Accounts 
+                Group Accounts 
+                Event Categories  
               </p>
             </div>
             <div className="service-three">
               <p className="service-icon">
                 <i className="fas fa-code" />
               </p>
-              <p className="service-title">Development</p>
+              <p className="service-title">Contact Us</p>
               <p>
-                We utilized the following in creating our application: React,
-                Node JS, PostgresSQL, Auth0, Google Maps API, and Material UI.
+              Facebook, Twitter, Instagram 
               </p>
             </div>
           </div>
@@ -129,10 +121,8 @@ class Content extends Component {
               <p>
                 Put simply, our main focus was to bring a simple, fast way to
                 connect our users to events. We also wanted to create something
-                that users wanted.We sent out a survey and based on user feeback, there were three
-                things we wanted to ensure we did:
-              
-              
+                that users wanted.We sent out a survey and based on user
+                feeback, there were three things we wanted to ensure we did:
                 <li>
                   Events are easily and quickly found around where a user is
                   located.
@@ -147,13 +137,6 @@ class Content extends Component {
                 </li>
               </p>
             </div>
-          </section>
-        </div>
-
-        <div className="contactUsWrapper">
-          <section className="contactUs">
-            <h2>Contact Us</h2>
-            <p>labs.eventplanner@gmail.com</p>
           </section>
         </div>
       </main>
