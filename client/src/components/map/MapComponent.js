@@ -1,86 +1,14 @@
-import React, { useState, Component } from "react";
-//import { compose, withProps } from 'recompose';
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
-//import * as eventsData from "data file for event details";
-import mapStyles from "../../styles/MapStyles";
-//import Geo from "./GeoComponent";
-import { connect } from "react-redux";
+import React from "react";
+import { withScriptjs, withGoogleMap } from "react-google-maps";
+import Map from "./Map";
 
 import LocationSearchInput from "./LocationSearchComponent";
 
-const dummyData = [
-  {
-    lat: 39.063555,
-    lng: -94.583268
-  }
-];
+const WrappedMap = withGoogleMap(Map);
 
-function Map() {
-  //setting up to display event detail boxes when clicking markers
-  const [selectedEvent, setSelectedEvent] = useState(null);
-
-  //function for geolocation unsure if correct in usage here, may be able to implement without making it a function?
-
-  //default map renders to ground 0, eventsData and id can be confirmed/updated once event dataset array is built out
-
-  return (
-    <body className="google-map">
-      <GoogleMap
-        defaultZoom={18}
-        defaultCenter={{ lat: 39.063555, lng: -94.583268 }}
-        defaultOptions={{ styles: mapStyles }}
-        panTo={{ lat: 39.063555, lng: -94.583268 }}
-      >
-        {dummyData.map(events => (
-          <Marker
-            key={events.length}
-            position={{
-              lat: events.lat, // must be an integer, not a string
-              lng: events.lng
-            }}
-            //onclick event to show event details when clicking marker
-            onClick={() => {
-              setSelectedEvent(events);
-            }}
-            //displays icon for event, using default icon for now until category icons are integrated
-            icon={{
-              url: "http://prankster101.com/newsite/wp-content/uploads/event-icon.png",
-              scaledSize: new window.google.maps.Size(25, 25)
-            }}
-          />
-        ))}
-
-        {selectedEvent && (
-          //displays data from database based on selected park
-          <InfoWindow
-            position={{
-              lat: selectedEvent.event.location[1],
-              lng: selectedEvent.event.location[0]
-            }}
-            //sets default state back to null when closing event details
-            onCloseClick={() => {
-              setSelectedEvent(null);
-            }}
-          >
-            <div>
-              <h3>{selectedEvent.properties.title}</h3>
-              <p>{selectedEvent.properties.shortDetails}</p>
-              <p>{selectedEvent.properties.eventDate}</p>
-              <p>{selectedEvent.properties.eventTime}</p>
-            </div>
-          </InfoWindow>
-        )}
-      </GoogleMap>
-    </body>
-  );
-}
-
-const WrappedMap = withScriptjs(withGoogleMap(Map));
-
-function eventMap() {
+export default function eventMap() {
   return (
     <div style={{ width: "100vw", height: "70vh" }}>
-      {/* <Geo /> */}
       <LocationSearchInput />
       <WrappedMap
         googleMapURL={
@@ -93,10 +21,3 @@ function eventMap() {
     </div>
   );
 }
-
-const mapStateToProps = ({ events }) => ({ events });
-
-export default connect(
-  mapStateToProps,
-  {}
-)(eventMap);

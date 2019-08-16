@@ -8,7 +8,7 @@ import Auth0Lock from "auth0-lock";
 import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
 import { connect } from "react-redux";
-import { getEvents } from "../store/index";
+import { getEvents } from "./store/index";
 
 import "./index.css";
 
