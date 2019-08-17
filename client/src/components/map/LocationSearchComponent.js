@@ -4,7 +4,7 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 
-import "../../../src/App.css"
+
 import { Marker } from "react-google-maps";
  
 // const renderFunc = ({ getInputProps, getSuggestionItemProps, suggestions }) => (
