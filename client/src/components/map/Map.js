@@ -1,5 +1,5 @@
 import React from "react";
-import { GoogleMap, Marker, InfoWindow, Geocoder } from "react-google-maps";
+import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 import { connect } from "react-redux";
 import mapStyles from "../../styles/MapStyles";
@@ -87,12 +87,26 @@ const dummyData = [
 
 class Map extends React.Component {
   state = {
-    selectedEvent: {}
+    selectedEvent: {},
+    lat: undefined,
+    lng: undefined
   };
 
   componentDidMount() {
-    console.log(this.props, "cdm map.js");
+    this.getPosition()
+      .then(position => {
+        this.setState({ lat: position.coords.latitude, lng: position.coords.longitude });
+      })
+      .catch(err => {
+        console.log(err.message);
+      });
   }
+
+  getPosition = () => {
+    return new Promise(function(resolve, reject) {
+      navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+  };
 
   addressConverter = event => {
     geocodeByAddress(event.location)
@@ -105,16 +119,12 @@ class Map extends React.Component {
     return (
       <div className="google-map">
         <GoogleMap
-          defaultZoom={6}
-          defaultCenter={{ lat: 39.063555, lng: -94.583268 }}
+          defaultZoom={18}
+          center={{ lat: this.state.lat, lng: this.state.lng }}
           defaultOptions={{ styles: mapStyles }}
-          panTo={{ lat: 39.063555, lng: -94.583268 }}
         >
           {dummyData.map(event => {
             this.addressConverter(event);
-            {
-              /* console.log(event.location.lat); */
-            }
             return (
               <Marker
                 key={event.id}

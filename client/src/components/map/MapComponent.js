@@ -1,5 +1,5 @@
 import React from "react";
-import { withScriptjs, withGoogleMap } from "react-google-maps";
+import { withGoogleMap } from "react-google-maps";
 import Map from "./Map";
 
 import LocationSearchInput from "./LocationSearchComponent";
