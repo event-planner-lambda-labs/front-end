@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import Anne from "../anne.png";
-import Dani from "../dani.png";
-import Preston from "../preston.jpg";
-import David from "../david.jpg";
-import Mike from "../mike.png";
+import teamData from './teamData';
+import MemberContent from './MemberContent';
 
 class Content extends Component {
   render() {
@@ -27,69 +24,13 @@ class Content extends Component {
             <h2>The Team</h2>
 
             <div className="team-row">
-              <div className="team">
-                <img className="teamPic" src={Preston} alt="" />
-                <h3>Preston Burton</h3>
-                <p>Team Lead / FullStack Developer</p>
-                <a href="https://github.com/Oliver-Strange">
-                  <i className="fab fa-github" />
-                </a>
-                <a href="https://www.linkedin.com/in/preston-burton-447108186/">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </div>
-            {/* </div> */}
-
-            {/* <div className="team-row"> */}
-              <div className="team">
-                <img className="teamPic" src={David} alt="" />
-                <h3>David Barrios</h3>
-                <p>FullStack Developer</p>
-                <a href="https://github.com/dbarrios13">
-                  <i className="fab fa-github" />
-                </a>
-                <a href="https://www.linkedin.com/in/david-a-barrios/">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </div>
-
-              <div className="team">
-                <img className="teamPic" src={Anne} alt="" />
-                <h3>Anne Tolmie</h3>
-                <p>FullStack Developer</p>
-                <a href="https://github.com/atolmie">
-                  <i className="fab fa-github" />
-                </a>
-                <a href="https://www.linkedin.com/in/anne-tolmie-7799434a/">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </div>
-            {/* </div> */}
-
-            {/* <div className="team-row"> */}
-              <div className="team">
-                <img className="teamPic" src={Dani} alt="" />
-                <h3>Danielle O'Neal</h3>
-                <p>FullStack Developer</p>
-                <a href="https://github.com/droneal11015">
-                  <i className="fab fa-github" />
-                </a>
-                <a href="https://www.linkedin.com/in/danielleoneal/">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </div>
-
-              <div className="team">
-                <img className="teamPic" src={Mike} alt="" />
-                <h3>Michael Del Zotto</h3>
-                <p>FullStack Developer</p>
-                <a href="https://github.com/mdelzotto">
-                  <i className="fab fa-github" />
-                </a>
-                <a href="https://www.linkedin.com/in/michaeldelzotto/">
-                  <i className="fab fa-linkedin-in" />
-                </a>
-              </div>
+              {teamData.map(member => {
+                return (
+                  <>
+                    <MemberContent data={member} />
+                  </>
+                );
+              })}
             </div>
           </div>
         </section>
