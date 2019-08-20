@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Navbar from "../Navbar";
+
 import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
@@ -75,26 +77,39 @@ export class EventForm extends Component {
     switch (step) {
       case 1:
         return (
-          <EventDetails nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
+          <>
+            <Navbar />
+            <EventDetails
+              nextStep={this.nextStep}
+              handleChange={this.handleChange}
+              values={values}
+            />
+          </>
         );
       case 2:
         return (
-          <MoreDetails
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            handleChange={this.handleChange}
-            togglePublicStatus={this.togglePublicStatus}
-            values={values}
-          />
+          <>
+            <Navbar />
+            <MoreDetails
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              handleChange={this.handleChange}
+              togglePublicStatus={this.togglePublicStatus}
+              values={values}
+            />
+          </>
         );
       case 3:
         return (
-          <Confirm
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            values={values}
-            newEvent={this.state.newEvent}
-          />
+          <>
+            <Navbar />
+            <Confirm
+              nextStep={this.nextStep}
+              prevStep={this.prevStep}
+              values={values}
+              newEvent={this.state.newEvent}
+            />
+          </>
         );
       case 4:
         return <Success />;
