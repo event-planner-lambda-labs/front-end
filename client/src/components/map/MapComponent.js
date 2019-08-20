@@ -1,17 +1,17 @@
 import React from "react";
-import { withGoogleMap } from "react-google-maps";
+import { withGoogleMap, withScriptjs } from "react-google-maps";
 import Map from "./Map";
 import Navbar from "../Navbar";
 
-import LocationSearchInput from "./LocationSearchComponent";
+// import LocationSearchInput from "./LocationSearchComponent";
 
-const WrappedMap = withGoogleMap(Map);
+const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function eventMap() {
   return (
-    <div style={{ width: "100vw", height: "70vh" }}>
+    <div style={{ width: "100vw", height: "85vh" }}>
       <Navbar />
-      <LocationSearchInput />
+      {/* <LocationSearchInput /> */}
       <WrappedMap
         googleMapURL={
           "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw 	"

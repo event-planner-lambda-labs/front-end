@@ -1,6 +1,7 @@
 import React from "react";
 import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
+import Search from "./LocationSearchComponent";
 import { connect } from "react-redux";
 import mapStyles from "../../styles/MapStyles";
 
@@ -89,7 +90,8 @@ class Map extends React.Component {
   state = {
     selectedEvent: {},
     lat: undefined,
-    lng: undefined
+    lng: undefined,
+    bounds: null
   };
 
   componentDidMount() {
@@ -118,6 +120,7 @@ class Map extends React.Component {
   render() {
     return (
       <div className="google-map">
+        <Search className="searchBar" />
         <GoogleMap
           defaultZoom={14}
           center={{ lat: this.state.lat, lng: this.state.lng }}
