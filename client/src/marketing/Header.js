@@ -5,14 +5,11 @@ import Fun from "../fun.jpg";
 class Header extends Component {
   btnClicked = path => {
     this.props.history.push(`/${path}`);
-    setTimeout(() => {
-      this.setState({ isOpen: false });
-    }, 500);
   };
 
   render() {
     return (
-      <header className="landingHeader">
+      <header className="landingHeader" data-aos="zoom-in-up" data-aos-duration="3000">
         <img className="headerPic" src={Fun} alt="" />
         <div className="head">
           <h1>Go Have Fun</h1>
