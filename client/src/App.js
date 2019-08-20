@@ -7,6 +7,7 @@ import Main from "./components/Main";
 import Auth0Lock from "auth0-lock";
 import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
+import Footer from "./components/Footer";
 
 import "./index.css";
 
