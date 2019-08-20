@@ -119,7 +119,7 @@ class Map extends React.Component {
     return (
       <div className="google-map">
         <GoogleMap
-          defaultZoom={18}
+          defaultZoom={14}
           center={{ lat: this.state.lat, lng: this.state.lng }}
           defaultOptions={{ styles: mapStyles }}
         >
@@ -149,8 +149,8 @@ class Map extends React.Component {
             //displays data from database based on selected park
             <InfoWindow
               position={{
-                lat: this.state.selectedEvent.event.location[1],
-                lng: this.state.selectedEvent.event.location[0]
+                lat: parseFloat(this.state.selectedEvent.event.location.lat),
+                lng: parseFloat(this.state.selectedEvent.event.location.lng)
               }}
               //sets default state back to null when closing event details
               onCloseClick={() => {
@@ -158,10 +158,10 @@ class Map extends React.Component {
               }}
             >
               <div>
-                <h3>{this.state.selectedEvent.title}</h3>
-                <p>{this.state.selectedEvent.properties.shortDetails}</p>
-                <p>{this.state.selectedEvent.properties.eventDate}</p>
-                <p>{this.state.selectedEvent.properties.eventTime}</p>
+                <h3>{this.state.selectedEvent.event.title}</h3>
+                <p>{this.state.selectedEvent.event.short_details}</p>
+                <p>{this.state.selectedEvent.event.event_date}</p>
+                <p>{this.state.selectedEvent.event.event_time}</p>
               </div>
             </InfoWindow>
           )} */}

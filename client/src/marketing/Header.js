@@ -16,10 +16,8 @@ class Header extends Component {
         <div className="head">
           <h1>Go Have Fun</h1>
           <div>
-            <p>
-              Integer posuere leo non erat ornare dictum id vitae magna. Proin consectetur iaculis
-              nisi, ut convallis tortor tempor congue. Curabitur sit amet tempus felis. Duis tellus
-              eros, pellentesque at rhoncus eu, maximus ut diam.
+            <p className="slogan">
+             A simpler and faster way to find events near you
             </p>
             <button className="contact" onClick={() => this.btnClicked("main")}>
               FIND AN EVENT
