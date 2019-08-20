@@ -1,10 +1,21 @@
 import React from "react";
+import { connect } from 'react-redux'
+import { getUsers } from '../store/index'
+import AddModal from "./LogRedirects/AddModal";
+import BackModal from "./LogRedirects/BackModal";
+import { CircularProgress } from '@material-ui/core'
 
 class Redirect extends React.Component {
-  componentDidMount() {
-    console.log(this.props);
-    this.props.lock.on("authenticated", function(authResult) {
-      this.getUserInfo(authResult.accessToken, function(error, profile) {
+
+  state = {
+    currentUser: '',
+    email: ''
+  }
+
+  async componentDidMount() {
+
+    await this.props.lock.on("authenticated", function (authResult) {
+      this.getUserInfo(authResult.accessToken, function (error, profile) {
         if (error) {
           return;
         }
@@ -14,17 +25,45 @@ class Redirect extends React.Component {
     });
 
     setTimeout(() => {
-      this.props.history.push("/main");
-    }, 2500);
+      this.props.getUsers();
+    }, 1500)
+  }
+
+  modalRender = (users, localEmail) => {
+    let currentUser;
+    let email = localEmail ? JSON.parse(localStorage.profile).email : '';
+    users.filter(user => {
+      if (email === user.email) {
+        return currentUser = user;
+      } else {
+        return currentUser;
+      }
+    })
+    if (currentUser) {
+      return <BackModal props={this.props} user={currentUser} />
+    } else {
+      return <AddModal props={this.props} />
+    }
   }
 
   render() {
     return (
       <div>
-        <p>stuff</p>
+        {this.props.fetchedUsers ? (
+          this.modalRender(this.props.allUsers, localStorage.profile)
+          ) : (
+            <CircularProgress />
+          )}
       </div>
     );
   }
 }
 
-export default Redirect;
+const mapStateToProps = ({ allUsers, user, fetchingUsers, fetchedUsers }) => ({
+  allUsers,
+  user,
+  fetchingUsers,
+  fetchedUsers
+});
+
+export default connect(mapStateToProps, { getUsers })(Redirect);

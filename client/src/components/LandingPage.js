@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { Button } from "@material-ui/core";
+import Header from "../marketing/Header";
+import Content from "../marketing/Content";
+import "../marketing/styles.css";
 
-class LandingPage extends Component {
+class Landing extends Component {
   render() {
     return (
       <div>
-        <h1> welcome to Go Have Fun! </h1>
-        <Button onClick={() => this.props.history.push("/main")}> to the events </Button>
+        <Header />
+        <Content />
       </div>
     );
   }
 }
 
-export default LandingPage;
+export default Landing;

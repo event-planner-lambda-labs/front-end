@@ -1,13 +1,14 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import PrivateRoute from "./auth/PrivateRoute";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import LandingPage from "./components/LandingPage";
+import NavBar from "./components/Navbar.js";
+import Landing from "./components/LandingPage";
 import Main from "./components/Main";
 import Auth0Lock from "auth0-lock";
 import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
+
+import "./index.css";
 
 const link = window.location.origin;
 
@@ -30,7 +31,7 @@ export default class App extends React.Component {
     return (
       <div className="App">
         <NavBar lock={this.lock} />
-        <Route exact path="/" component={LandingPage} />
+        <Route exact path="/" component={Landing} />
         <Route path="/main" component={Main} />
         <Route
           path="/redirect"

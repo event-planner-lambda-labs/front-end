@@ -31,10 +31,11 @@ dusty rose #B6A19E
 
 .logo {
   cursor: pointer;
+  color: #fba100;
 }
 
 .logo:hover {
-  color: #fba100;
+  color: #6c648b;
 }
 
 footer {
