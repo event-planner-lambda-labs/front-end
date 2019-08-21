@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import Navigation from "../Navigation";
+
 import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
 
-export class EventForm extends Component {
+class EventForm extends Component {
   state = {
     step: 1,
     newEvent: {
@@ -15,7 +17,7 @@ export class EventForm extends Component {
       short_details: "",
       long_details: "",
       public_status: true,
-      host_id: 1 // test, need to pass in host_id
+      host_id: JSON.parse(localStorage.user).id
     }
   };
 
@@ -37,6 +39,15 @@ export class EventForm extends Component {
     });
   };
 
+  setLocation = location => {
+    this.setState({
+      newEvent: {
+        ...this.state.newEvent,
+        location: location
+      }
+    });
+  };
+
   //Handle Change
   handleChange = input => e => {
     this.setState({ newEvent: { ...this.state.newEvent, [input]: e.target.value } });
@@ -44,11 +55,13 @@ export class EventForm extends Component {
 
   //Checkbox
   togglePublicStatus = () => {
-    this.setState({ public_status: !this.state.newEvent.public_status });
+    this.setState({ newEvent: {
+      ...this.state.newEvent,
+      public_status: !this.state.newEvent.public_status }
+    });
   };
 
   render() {
-    console.log(this.state.newEvent);
     const { step } = this.state;
     const {
       title,
@@ -75,26 +88,46 @@ export class EventForm extends Component {
     switch (step) {
       case 1:
         return (
-          <EventDetails nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
+          <>
+            <Navigation />
+            <div className='eventForm'>
+              <EventDetails
+                nextStep={this.nextStep}
+                handleChange={this.handleChange}
+                values={values}
+                setLocation={this.setLocation}
+              />
+            </div>
+          </>
         );
       case 2:
         return (
-          <MoreDetails
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            handleChange={this.handleChange}
-            togglePublicStatus={this.togglePublicStatus}
-            values={values}
-          />
+          <>
+            <Navigation />
+            <div className='eventForm'>
+              <MoreDetails
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+                handleChange={this.handleChange}
+                togglePublicStatus={this.togglePublicStatus}
+                values={values}
+              />
+            </div>
+          </>
         );
       case 3:
         return (
-          <Confirm
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            values={values}
-            newEvent={this.state.newEvent}
-          />
+          <>
+            <Navigation />
+            <div className='eventForm'>
+              <Confirm
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+                values={values}
+                newEvent={this.state.newEvent}
+              />
+            </div>
+          </>
         );
       case 4:
         return <Success />;
