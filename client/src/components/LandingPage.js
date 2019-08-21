@@ -1,16 +1,12 @@
-import React, { Component } from "react";
-import Header from "../marketing/Header";
-import Content from "../marketing/Content";
+import React from "react";
+import Header from "./marketing/Header";
+import Content from "./marketing/Content";
 
-class Landing extends Component {
-  render() {
-    return (
-      <div>
-        <Header />
-        <Content />
-      </div>
-    );
-  }
-}
-
-export default Landing;
+export default function Landing() {
+  return (
+    <>
+      <Header />
+      <Content />
+    </>
+  );
+};

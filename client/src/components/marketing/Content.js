@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import teamData from "./teamData";
 import MemberContent from "./MemberContent";
-import Features from "../pictures/features.jpeg";
-import Upcoming from "../pictures/upcoming.jpeg";
-import Map from "../pictures/map.png";
+import Features from "../../pictures/features.jpeg";
+import Upcoming from "../../pictures/upcoming.jpeg";
+import Map from "../../pictures/map.png";
 
 class Content extends Component {
   btnClicked = path => {
