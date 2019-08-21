@@ -5,6 +5,7 @@ import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
+import Footer from "../Footer";
 
 class EventForm extends Component {
   state = {
@@ -94,6 +95,7 @@ class EventForm extends Component {
               values={values}
               setLocation={this.setLocation}
             />
+            <Footer />
           </>
         );
       case 2:
@@ -107,6 +109,7 @@ class EventForm extends Component {
               togglePublicStatus={this.togglePublicStatus}
               values={values}
             />
+            <Footer />
           </>
         );
       case 3:
@@ -119,6 +122,7 @@ class EventForm extends Component {
               values={values}
               newEvent={this.state.newEvent}
             />
+            <Footer />
           </>
         );
       case 4:
