@@ -23,13 +23,13 @@ class AddModal extends Component {
         }
         await this.props.postUser(user)
         setTimeout(() => {
-            this.props.history.go(-2);
+            this.props.history.push('/main')
         }, 1500)
     }
 
     render () {
         return (
-            <div className='redirectPage'>
+            <div>
                 <div>
                     <form onSubmit={this.handleSubmit}>
                         <TextField 

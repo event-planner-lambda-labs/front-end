@@ -1,12 +1,29 @@
 import React from "react";
 import MapComponent from "./map/MapComponent";
-import Navigation from "./Navigation";
+import { connect } from "react-redux";
+import { getEvents } from "../store/index";
 
-export default function Main(props) {
-  return (
-    <div>
-      <Navigation lock={props.lock} />
-      <MapComponent props={props} />
-    </div>
-  );
-};
+class Main extends React.Component {
+  async componentDidMount() {
+    await this.props.getEvents();
+  }
+
+  render() {
+    return (
+      <div>
+        <MapComponent />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = ({ fetchingEvents, fetchedEvents, events }) => ({
+  fetchingEvents,
+  fetchedEvents,
+  events
+});
+
+export default connect(
+  mapStateToProps,
+  { getEvents }
+)(Main);

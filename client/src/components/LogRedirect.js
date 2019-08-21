@@ -34,7 +34,6 @@ class Redirect extends React.Component {
     let email = localEmail ? JSON.parse(localStorage.profile).email : '';
     users.filter(user => {
       if (email === user.email) {
-        localStorage.setItem('user', JSON.stringify(user))
         return currentUser = user;
       } else {
         return currentUser;
