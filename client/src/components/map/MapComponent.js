@@ -9,7 +9,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function eventMap() {
   return (
-    <div style={{ width: "100vw", height: "85vh" }}>
+    <div style={{ width: "100vw", height: "80vh" }}>
       <Navbar />
       {/* <LocationSearchInput /> */}
       <WrappedMap
