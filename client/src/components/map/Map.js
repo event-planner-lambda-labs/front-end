@@ -10,7 +10,7 @@ class Map extends React.Component {
     open: false,
     lat: undefined,
     lng: undefined,
-    bounds: null
+    zoom: 14
   };
 
   componentDidMount() {
@@ -23,6 +23,15 @@ class Map extends React.Component {
       });
   }
 
+  searchLocation = (lat, lng) => {
+    this.setState({
+      ...this.state,
+      lat: lat,
+      lng: lng,
+      zoom: 18
+    })
+  }
+
   getPosition = () => {
     return new Promise(function(resolve, reject) {
       navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -32,11 +41,17 @@ class Map extends React.Component {
   render() {
     return (
       <div className="google-map">
-        <Search className="searchBar" />
+        <Search className="searchBar" location={this.searchLocation} />
         <GoogleMap
-          defaultZoom={14}
+          zoom={this.state.zoom}
           center={{ lat: this.state.lat, lng: this.state.lng }}
           defaultOptions={{ styles: mapStyles }}
+          onZoomChanged={() => {
+            this.setState({
+              ...this.state,
+              zoom: 14
+            })
+          }}
         >
           {this.props.events.map(event => {
             return (
@@ -48,7 +63,13 @@ class Map extends React.Component {
                 }}
                 //onclick event to show event details when clicking marker
                 onClick={() => {
-                  this.setState({ selectedEvent: event, open: true });
+                  this.setState({ 
+                    selectedEvent: event, 
+                    open: true,
+                    lat: parseFloat(JSON.parse(event.location).lat),
+                    lng: parseFloat(JSON.parse(event.location).lng),
+                    zoom: 18
+                  });
                 }}
                 //displays icon for event, using default icon for now until category icons are integrated
                 icon={{
@@ -68,7 +89,13 @@ class Map extends React.Component {
               }}
               //sets default state back to null when closing event details
               onCloseClick={() => {
-                this.setState({ open: false });
+                this.setState({
+                  selectedEvent: {}, 
+                  open: false,
+                  lat: undefined,
+                  lng: undefined,
+                  zoom: 14
+                });
               }}
             >
               <div>
