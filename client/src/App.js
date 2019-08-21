@@ -8,6 +8,7 @@ import Redirect from "./components/LogRedirect";
 import EventForm from "./components/eventForm/EventForm";
 import { connect } from "react-redux";
 import { getEvents } from "./store/index";
+import Footer from "./components/Footer";
 
 const link = window.location.origin;
 
@@ -33,6 +34,7 @@ class App extends React.Component {
         <Route path="/main" component={Main} />
         <Route path="/redirect" render={props => <Redirect {...props} lock={this.lock} />} />
         <PrivateRoute path="/createEvent" component={EventForm} />
+        <Footer />
       </div>
     );
   }
