@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import NavBar from "../NavBar";
+import Navigation from "../Navigation";
 
 import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
@@ -87,7 +87,7 @@ class EventForm extends Component {
       case 1:
         return (
           <>
-            <NavBar />
+            <Navigation />
             <EventDetails
               nextStep={this.nextStep}
               handleChange={this.handleChange}
@@ -99,7 +99,7 @@ class EventForm extends Component {
       case 2:
         return (
           <>
-            <NavBar />
+            <Navigation />
             <MoreDetails
               nextStep={this.nextStep}
               prevStep={this.prevStep}
@@ -112,7 +112,7 @@ class EventForm extends Component {
       case 3:
         return (
           <>
-            <NavBar />
+            <Navigation />
             <Confirm
               nextStep={this.nextStep}
               prevStep={this.prevStep}

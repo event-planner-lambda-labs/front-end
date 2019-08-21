@@ -13,7 +13,7 @@ import {
 } from "@material-ui/core";
 import { Menu, ChevronLeft } from "@material-ui/icons";
 
-class NavBar extends React.Component {
+class Navigation extends React.Component {
   state = {
     isOpen: false
   };
@@ -67,12 +67,12 @@ class NavBar extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <Drawer open={this.state.isOpen} className='navDrawer'>
-          <IconButton onClick={this.handleBtn} className='drawerBtn'>
+        <Drawer open={this.state.isOpen} className="navDrawer">
+          <IconButton onClick={this.handleBtn} className="drawerBtn">
             <ChevronLeft />
           </IconButton>
           <List>
-            <ListItem button onClick={() => this.btnClicked("createEvent")} className='drawerBtn'>
+            <ListItem button onClick={() => this.btnClicked("createEvent")} className="drawerBtn">
               <ListItemText primary="Add Event" />
             </ListItem>
           </List>
@@ -82,4 +82,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default withRouter(NavBar);
+export default withRouter(Navigation);
