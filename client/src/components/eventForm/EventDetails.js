@@ -5,7 +5,6 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import LocationSearchInput from "./EventLocationComponent";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
-import "../../../src/App.css";
 
 export class EventDetails extends Component {
   continue = async e => {
