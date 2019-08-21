@@ -4,7 +4,6 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   IconButton,
   Drawer,
   ListItem,
@@ -27,6 +26,7 @@ class Navigation extends React.Component {
     e.preventDefault();
     localStorage.removeItem("token");
     localStorage.removeItem("profile");
+    localStorage.removeItem("user");
     this.props.history.push("/");
   };
 
@@ -35,14 +35,6 @@ class Navigation extends React.Component {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  };
-
-  navBtn = () => {
-    if (localStorage.token) {
-      return <Button onClick={this.logout}>Log Out</Button>;
-    } else {
-      return <Button onClick={this.login}>Login</Button>;
-    }
   };
 
   btnClicked = path => {
@@ -55,23 +47,25 @@ class Navigation extends React.Component {
   render() {
     return (
       <>
-        <AppBar position="static">
+        <AppBar>
           <Toolbar>
-            <IconButton edge="start" onClick={this.handleBtn}>
-              <Menu />
-            </IconButton>
             <Typography varient="h2" onClick={() => this.btnClicked("main")} className="logo">
               GoHaveFun
             </Typography>
-            {this.navBtn()}
+            <IconButton edge="end" onClick={this.handleBtn}>
+              <Menu />
+            </IconButton>
           </Toolbar>
         </AppBar>
 
-        <Drawer open={this.state.isOpen} className="navDrawer">
+        <Drawer anchor='right' open={this.state.isOpen} className="navDrawer">
           <IconButton onClick={this.handleBtn} className="drawerBtn">
             <ChevronLeft />
           </IconButton>
           <List>
+            <ListItem button onClick={localStorage.token ? this.logout : this.login}>
+              <ListItemText primary={localStorage.token ? 'Logout' : 'Login'} />
+            </ListItem>
             <ListItem button onClick={() => this.btnClicked("createEvent")} className="drawerBtn">
               <ListItemText primary="Add Event" />
             </ListItem>

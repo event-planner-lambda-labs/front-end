@@ -30,9 +30,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <Route exact path="/" component={Landing} />
-        <Route path="/main" component={Main} />
+        <Route path="/main" render={props => <Main {...props} lock={this.lock} />} />
         <Route path="/redirect" render={props => <Redirect {...props} lock={this.lock} />} />
-        <PrivateRoute path="/createEvent" component={EventForm} />
+        <PrivateRoute path="/createEvent" component={EventForm} lock={this.lock} />
       </div>
     );
   }
