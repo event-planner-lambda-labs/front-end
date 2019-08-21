@@ -72,11 +72,7 @@ class Content extends Component {
 
             <div className="team-row">
               {teamData.map(member => {
-                return (
-                  <>
-                    <MemberContent data={member} />
-                  </>
-                );
+                return <MemberContent data={member} key={member.id} />;
               })}
             </div>
           </div>
