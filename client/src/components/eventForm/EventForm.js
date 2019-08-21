@@ -17,7 +17,7 @@ class EventForm extends Component {
       short_details: "",
       long_details: "",
       public_status: true,
-      host_id: JSON.parse(localStorage.user).id // test, need to pass in host_id
+      host_id: JSON.parse(localStorage.user).id
     }
   };
 
@@ -55,11 +55,13 @@ class EventForm extends Component {
 
   //Checkbox
   togglePublicStatus = () => {
-    this.setState({ public_status: !this.state.newEvent.public_status });
+    this.setState({ newEvent: {
+      ...this.state.newEvent,
+      public_status: !this.state.newEvent.public_status }
+    });
   };
 
   render() {
-    console.log(this.state.newEvent);
     const { step } = this.state;
     const {
       title,
@@ -88,37 +90,43 @@ class EventForm extends Component {
         return (
           <>
             <Navigation />
-            <EventDetails
-              nextStep={this.nextStep}
-              handleChange={this.handleChange}
-              values={values}
-              setLocation={this.setLocation}
-            />
+            <div className='eventForm'>
+              <EventDetails
+                nextStep={this.nextStep}
+                handleChange={this.handleChange}
+                values={values}
+                setLocation={this.setLocation}
+              />
+            </div>
           </>
         );
       case 2:
         return (
           <>
             <Navigation />
-            <MoreDetails
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              handleChange={this.handleChange}
-              togglePublicStatus={this.togglePublicStatus}
-              values={values}
-            />
+            <div className='eventForm'>
+              <MoreDetails
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+                handleChange={this.handleChange}
+                togglePublicStatus={this.togglePublicStatus}
+                values={values}
+              />
+            </div>
           </>
         );
       case 3:
         return (
           <>
             <Navigation />
-            <Confirm
-              nextStep={this.nextStep}
-              prevStep={this.prevStep}
-              values={values}
-              newEvent={this.state.newEvent}
-            />
+            <div className='eventForm'>
+              <Confirm
+                nextStep={this.nextStep}
+                prevStep={this.prevStep}
+                values={values}
+                newEvent={this.state.newEvent}
+              />
+            </div>
           </>
         );
       case 4:

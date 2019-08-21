@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import Fun from "../pictures/fun.jpg";
+import Fun from "../../pictures/fun.jpg";
+
 class Header extends Component {
   btnClicked = path => {
     this.props.history.push(`/${path}`);
