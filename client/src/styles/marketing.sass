@@ -4,7 +4,7 @@
         height: 100vh
 
     .head 
-        top: 0
+        top: 0 
         left: 0
         position: absolute
         color: $fifth-color
@@ -24,18 +24,23 @@
             font-size: 1.75rem
             color: $fifth-color
 
-        .contact 
-            border: none
-            padding: 14px
-            border-radius: 7px
-            background-color: $secondary-color
-            color: white
     
     div 
         text-align: center
         line-height: 2
 
     
+
+.contact 
+    border: none
+    padding: 14px
+    border-radius: 7px
+    background-color: $secondary-color
+    color: white
+    cursor: pointer
+
+    &:hover 
+        transform: scale(1.15)
 
 main 
     margin-top: -3px
