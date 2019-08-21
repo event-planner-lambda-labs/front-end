@@ -25,7 +25,9 @@ import { Marker } from "react-google-maps";
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { address: '' };
+    this.state = { 
+      address: '' 
+    };
   }
  
   handleChange = address => {

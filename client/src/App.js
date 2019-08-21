@@ -1,7 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import PrivateRoute from "./auth/PrivateRoute";
-import NavBar from "./components/Navbar.js";
+import NavBar from "./components/NavBar.js";
 import Landing from "./components/LandingPage";
 import Main from "./components/Main";
 import Auth0Lock from "auth0-lock";

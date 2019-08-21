@@ -15,7 +15,7 @@ class EventForm extends Component {
       short_details: "",
       long_details: "",
       public_status: true,
-      host_id: 1 // test, need to pass in host_id
+      host_id: JSON.parse(localStorage.user).id // test, need to pass in host_id
     }
   };
 
@@ -36,6 +36,15 @@ class EventForm extends Component {
       step: step - 1
     });
   };
+
+  setLocation = location => {
+    this.setState({
+      newEvent:{
+        ...this.state.newEvent,
+        location: location
+      }
+    })
+  }
 
   //Handle Change
   handleChange = input => e => {
@@ -75,7 +84,7 @@ class EventForm extends Component {
     switch (step) {
       case 1:
         return (
-          <EventDetails nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
+          <EventDetails nextStep={this.nextStep} handleChange={this.handleChange} values={values} setLocation={this.setLocation} />
         );
       case 2:
         return (
