@@ -23,7 +23,9 @@ class Footer extends Component {
             <i className="fab fa-linkedin-in" />
           </a>
         </div>
+        
         <p>© 2019</p>
+        
       </footer>
     );
   }

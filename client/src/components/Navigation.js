@@ -47,7 +47,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <>
-        <AppBar position="static">
+        <AppBar className="appBar" position="static">
           <Toolbar>
             <Typography varient="h2" onClick={() => this.btnClicked("main")} className="logo">
               GoHaveFun
