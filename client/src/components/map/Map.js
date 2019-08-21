@@ -7,6 +7,7 @@ import mapStyles from "../../styles/MapStyles";
 class Map extends React.Component {
   state = {
     selectedEvent: {},
+    open: false,
     lat: undefined,
     lng: undefined,
     bounds: null
@@ -47,7 +48,7 @@ class Map extends React.Component {
                 }}
                 //onclick event to show event details when clicking marker
                 onClick={() => {
-                  this.setState({ selectedEvent: event });
+                  this.setState({ selectedEvent: event, open: true });
                 }}
                 //displays icon for event, using default icon for now until category icons are integrated
                 icon={{
@@ -58,26 +59,26 @@ class Map extends React.Component {
             );
           })}
 
-          {/* {this.state.selectedEvent && (
+          {this.state.open && 
             //displays data from database based on selected park
             <InfoWindow
               position={{
-                lat: parseFloat(this.state.selectedEvent.event.location.lat),
-                lng: parseFloat(this.state.selectedEvent.event.location.lng)
+                lat: parseFloat(JSON.parse(this.state.selectedEvent.location).lat),
+                lng: parseFloat(JSON.parse(this.state.selectedEvent.location).lng)
               }}
               //sets default state back to null when closing event details
               onCloseClick={() => {
-                this.setState({ selectedEvent: null });
+                this.setState({ open: false });
               }}
             >
               <div>
-                <h3>{this.state.selectedEvent.event.title}</h3>
-                <p>{this.state.selectedEvent.event.short_details}</p>
-                <p>{this.state.selectedEvent.event.event_date}</p>
-                <p>{this.state.selectedEvent.event.event_time}</p>
+                <h3>{this.state.selectedEvent.title}</h3>
+                <p>{this.state.selectedEvent.short_details}</p>
+                <p>{this.state.selectedEvent.event_date}</p>
+                <p>{this.state.selectedEvent.event_time}</p>
               </div>
             </InfoWindow>
-          )} */}
+          }
         </GoogleMap>
       </div>
     );
