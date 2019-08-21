@@ -100,6 +100,7 @@ class EventForm extends Component {
                 values={values}
                 setLocation={this.setLocation}
               />
+              <Footer />
             </div>
           </>
         );
@@ -115,6 +116,7 @@ class EventForm extends Component {
                 togglePublicStatus={this.togglePublicStatus}
                 values={values}
               />
+              <Footer />
             </div>
           </>
         );
@@ -129,6 +131,7 @@ class EventForm extends Component {
                 values={values}
                 newEvent={this.state.newEvent}
               />
+              <Footer />
             </div>
           </>
         );

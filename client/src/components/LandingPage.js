@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "../marketing/Header";
-import Content from "../marketing/Content";
+import Header from "./marketing/Header";
+import Content from "./marketing/Content";
 import Footer from "./Footer";
 
 class Landing extends Component {

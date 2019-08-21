@@ -10,7 +10,7 @@ import {
   List,
   ListItemText
 } from "@material-ui/core";
-import { Menu, ChevronLeft } from "@material-ui/icons";
+import { Menu, ChevronRight } from "@material-ui/icons";
 
 class Navigation extends React.Component {
   state = {
@@ -47,7 +47,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <>
-        <AppBar>
+        <AppBar className="appBar">
           <Toolbar>
             <Typography varient="h2" onClick={() => this.btnClicked("main")} className="logo">
               GoHaveFun
@@ -58,16 +58,36 @@ class Navigation extends React.Component {
           </Toolbar>
         </AppBar>
 
-        <Drawer anchor='right' open={this.state.isOpen} className="navDrawer">
-          <IconButton onClick={this.handleBtn} className="drawerBtn">
-            <ChevronLeft />
-          </IconButton>
+        <Drawer anchor="right" open={this.state.isOpen} className="navDrawer">
+          <div className="drawerCloseBtn">
+            <IconButton onClick={this.handleBtn} className="drawerBtn">
+              <ChevronRight />
+            </IconButton>
+          </div>
           <List>
-            <ListItem button onClick={localStorage.token ? this.logout : this.login}>
-              <ListItemText primary={localStorage.token ? 'Logout' : 'Login'} />
+            <ListItem className="drawerBtn">
+              <ListItemText
+                primary={
+                  localStorage.user
+                    ? `Welcome back, ${JSON.parse(localStorage.user).username}!`
+                    : ""
+                }
+              />
+            </ListItem>
+            <ListItem button onClick={() => this.btnClicked("/")} className="drawerBtn">
+              <ListItemText primary="Home" />
             </ListItem>
             <ListItem button onClick={() => this.btnClicked("createEvent")} className="drawerBtn">
               <ListItemText primary="Add Event" />
+            </ListItem>
+            <ListItem button onClick={() => this.btnClicked("main")} className="drawerBtn">
+              <ListItemText primary="Map" />
+            </ListItem>
+            <ListItem button onClick={() => this.btnClicked("#")} className="drawerBtn">
+              <ListItemText primary="Submit Feedback" />
+            </ListItem>
+            <ListItem button onClick={localStorage.token ? this.logout : this.login}>
+              <ListItemText primary={localStorage.token ? "Logout" : "Login"} />
             </ListItem>
           </List>
         </Drawer>
