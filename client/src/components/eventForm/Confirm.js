@@ -36,7 +36,7 @@ export class Confirm extends Component {
           <AppBar title="Confirm Event Details" />
           <List>
             <ListItemText primary="Title" secondary={title} />
-            <ListItemText primary="Location" secondary={location} />
+            <ListItemText primary="Location" secondary={JSON.parse(location).address} />
             <ListItemText primary="Event Time" secondary={event_time} />
             <ListItemText primary="Event Date" secondary={event_date} />
             <ListItemText primary="Short Details" secondary={short_details} />

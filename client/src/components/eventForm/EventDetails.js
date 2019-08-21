@@ -3,11 +3,24 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import LocationSearchInput from "../map/LocationSearchComponent";
+import LocationSearchInput from "./EventLocationComponent";
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
+import "../../../src/App.css";
 
 export class EventDetails extends Component {
-  continue = e => {
+  continue = async e => {
     e.preventDefault();
+    const location = {};
+    const inputValue = document.querySelector(".event-location input").value;
+    location.address = inputValue;
+    await geocodeByAddress(inputValue)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        location.lat = latLng.lat;
+        location.lng = latLng.lng;
+      })
+      .catch(error => console.error("Error", error));
+    this.props.setLocation(JSON.stringify(location));
     this.props.nextStep();
   };
   render() {
@@ -24,7 +37,9 @@ export class EventDetails extends Component {
             required
           />
           <br />
-          <TextField
+
+          <LocationSearchInput
+            className="event-location"
             label="Event Location"
             onChange={handleChange("location")}
             value={values.location}

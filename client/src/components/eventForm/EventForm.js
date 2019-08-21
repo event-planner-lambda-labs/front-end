@@ -6,7 +6,7 @@ import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
 
-export class EventForm extends Component {
+class EventForm extends Component {
   state = {
     step: 1,
     newEvent: {
@@ -17,7 +17,7 @@ export class EventForm extends Component {
       short_details: "",
       long_details: "",
       public_status: true,
-      host_id: 1 // test, need to pass in host_id
+      host_id: JSON.parse(localStorage.user).id // test, need to pass in host_id
     }
   };
 
@@ -36,6 +36,15 @@ export class EventForm extends Component {
     const { step } = this.state;
     this.setState({
       step: step - 1
+    });
+  };
+
+  setLocation = location => {
+    this.setState({
+      newEvent: {
+        ...this.state.newEvent,
+        location: location
+      }
     });
   };
 
@@ -83,6 +92,7 @@ export class EventForm extends Component {
               nextStep={this.nextStep}
               handleChange={this.handleChange}
               values={values}
+              setLocation={this.setLocation}
             />
           </>
         );
