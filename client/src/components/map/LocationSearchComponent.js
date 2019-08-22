@@ -29,7 +29,7 @@ class LocationSearchInput extends React.Component {
         value={this.state.value}
         onChange={value => this.setState({ value })}
         onSelect={this.handleSelect}
-      >
+      > 
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div className="location-div">
             <input
