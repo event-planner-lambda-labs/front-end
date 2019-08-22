@@ -8,6 +8,7 @@ import Calendar from "../../pictures/event-icon.png";
 class Map extends React.Component {
   state = {
     selectedEvent: {},
+    selected: false,
     open: false,
     lat: undefined,
     lng: undefined,
@@ -27,6 +28,7 @@ class Map extends React.Component {
   searchLocation = (lat, lng) => {
     this.setState({
       ...this.state,
+      selected: true,
       lat: lat,
       lng: lng,
       zoom: 18
@@ -80,7 +82,18 @@ class Map extends React.Component {
               />
             );
           })}
-
+          {this.state.selected &&
+            <Marker 
+              position={{
+                lat: parseFloat(this.state.lat), // must be an integer, not a string
+                lng: parseFloat(this.state.lng)
+              }}
+              icon={{
+                url: Calendar,
+                scaledSize: new window.google.maps.Size(30, 30)
+              }}
+            />
+          }
           {this.state.open && 
             //displays data from database based on selected park
             <InfoWindow
@@ -101,6 +114,7 @@ class Map extends React.Component {
             >
               <div>
                 <h3>{this.state.selectedEvent.title}</h3>
+                <p>{JSON.parse(this.state.selectedEvent.location).address}</p>
                 <p>{this.state.selectedEvent.short_details}</p>
                 <p>{this.state.selectedEvent.event_date}</p>
                 <p>{this.state.selectedEvent.event_time}</p>
