@@ -1,26 +1,30 @@
 import React, { Component } from "react";
-import { MuiThemeProvider } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
 import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { getEvents } from '../../store/index';
 
-export class Success extends Component {
+class Success extends Component {
+  
   componentDidMount() {
+    this.props.getEvents();
     setTimeout(() => {
       this.props.history.push("/main");
-    }, 1250);
+    }, 2250);
   }
 
   render() {
     return (
-      <MuiThemeProvider>
-        <div className="createEventForm">
-          <AppBar title="Success" />
-          <h1>Thank You For Submitting Your Event</h1>
-          <p>Now Go Have Fun!</p>
-        </div>
-      </MuiThemeProvider>
+      <div className="eventFormSuccess">
+        <h1>Success</h1>
+        <h2>Thank You For Submitting Your Event</h2>
+        <p>Now Go Have Fun!</p>
+      </div>
     );
   }
 }
 
-export default withRouter(Success);
+const mapStateToProps = ({ events }) => ({
+  events
+})
+
+export default connect(mapStateToProps, { getEvents })(withRouter(Success));
