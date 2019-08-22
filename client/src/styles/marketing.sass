@@ -20,10 +20,13 @@
         h1
             text-transform: uppercase
             font-size: 7rem
+            @media #{$mobile}
+                    font-size: 4rem
         p   
             font-size: 1.75rem
             color: $fifth-color
-
+            @media #{$mobile}
+                    font-size: 1rem
     
     div 
         text-align: center
@@ -38,7 +41,12 @@
     background-color: $secondary-color
     color: white
     cursor: pointer
-
+    @media #{$mobile}
+        width: 100%
+        paddding: 12px
+        padding: 24px
+        margin-top: 12px
+        font-size: 1.25rem
     &:hover 
         transform: scale(1.1)
 
@@ -64,6 +72,9 @@ main
         align-items: center
         width: 100%
         background-color: $secondary-color
+        @media #{$mobile}
+            height: 50%
+
         section
             width: 60% 
             line-height: 2
@@ -71,7 +82,11 @@ main
         h2 
             font-size: 1.75rem
             text-transform: uppercase
-
+            @media #{$mobile}
+                font-size: 1rem
+        p
+         @media #{$mobile}
+                font-size: .75rem
     .about
         height: 100%
         padding-top: 60px
@@ -134,7 +149,24 @@ main
         color: white
         div
             width: 50%
+        h3 
+            text-transform: uppercase
+        @media #{$mobile}
+            flex-direction: column
+            div
+                width: 100%
+                height: 50%
+            h3 
+                font-size: 1.25rem
+            p 
+                font-size: .75rem
+            
     .service-one
+        @media #{$mobile}
+            flex-direction: column
+            div
+                width: 100%
+                height: 50%
         div:nth-child(1)
             img
                 width: 100%
@@ -149,7 +181,16 @@ main
             padding: 20px
             h3
                 font-size: 2rem
+                @media #{$mobile}
+                    font-size: 1.25rem
+
     .service-two
+        @media #{$mobile}
+            flex-direction: column-reverse
+            align-self: flex-end
+            div
+                width: 100%
+                height: 50%
         div:nth-child(1)
             background-color: $fourth-color
             display: flex
@@ -160,6 +201,8 @@ main
             padding: 20px
             h3
                 font-size: 2rem
+                @media #{$mobile}
+                    font-size: 1.25rem
         div:nth-child(2)
             img
                 width: 100%
@@ -186,3 +229,8 @@ main
             border-radius: 7px
             background-color: $secondary-color
             color: white
+            @media #{$mobile}
+                width: 100%
+                padding: 24px
+                font-size: 1.25rem
+ 
