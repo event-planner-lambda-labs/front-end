@@ -45,16 +45,12 @@ export class EventForm extends Component {
 
   //Checkbox
   togglePublicStatus = () => {
-<<<<<<< HEAD
     this.setState({
       newEvent: {
         ...this.state.newEvent,
         public_status: !this.state.newEvent.public_status
       }
     });
-=======
-    this.setState({ public_status: !this.state.newEvent.public_status });
->>>>>>> ea385085c7cb9067457e488361f4dc6ed5884207
   };
 
   render() {
@@ -85,7 +81,6 @@ export class EventForm extends Component {
     switch (step) {
       case 1:
         return (
-<<<<<<< HEAD
           <>
             <Navigation />
             <div className="eventForm">
@@ -129,28 +124,6 @@ export class EventForm extends Component {
               <Footer />
             </div>
           </>
-=======
-          <EventDetails nextStep={this.nextStep} handleChange={this.handleChange} values={values} />
-        );
-      case 2:
-        return (
-          <MoreDetails
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            handleChange={this.handleChange}
-            togglePublicStatus={this.togglePublicStatus}
-            values={values}
-          />
-        );
-      case 3:
-        return (
-          <Confirm
-            nextStep={this.nextStep}
-            prevStep={this.prevStep}
-            values={values}
-            newEvent={this.state.newEvent}
-          />
->>>>>>> ea385085c7cb9067457e488361f4dc6ed5884207
         );
       case 4:
         return <Success />;

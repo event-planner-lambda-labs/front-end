@@ -77,13 +77,7 @@ const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function eventMap() {
   return (
-<<<<<<< HEAD
     <div style={{ width: "100vw", height: "100vh" }}>
-=======
-    <div style={{ width: "100vw", height: "70vh" }}>
-      {/* <Geo /> */}
-      <LocationSearchInput />
->>>>>>> ea385085c7cb9067457e488361f4dc6ed5884207
       <WrappedMap
         googleMapURL={
           "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyCtTDf-cRIv4LFjrPKPUttpcLXb45tHhRw 	"
