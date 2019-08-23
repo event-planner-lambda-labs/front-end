@@ -3,7 +3,7 @@ import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Search from "./LocationSearchComponent";
 import { connect } from "react-redux";
 import mapStyles from "../../styles/MapStyles";
-import Calendar from "../../pictures/event-icon.png";
+import { EventIcon, CurrentLocation } from "../../pictures";
 
 class Map extends React.Component {
   state = {
@@ -76,7 +76,7 @@ class Map extends React.Component {
                 }}
                 //displays icon for event, using default icon for now until category icons are integrated
                 icon={{
-                  url: Calendar,
+                  url: EventIcon,
                   scaledSize: new window.google.maps.Size(30, 30)
                 }}
               />
@@ -89,7 +89,7 @@ class Map extends React.Component {
                 lng: parseFloat(this.state.lng)
               }}
               icon={{
-                url: Calendar,
+                url: CurrentLocation,
                 scaledSize: new window.google.maps.Size(30, 30)
               }}
             />
