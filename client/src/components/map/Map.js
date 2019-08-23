@@ -117,6 +117,7 @@ class Map extends React.Component {
                 <p className="infoAddress">
                   {JSON.parse(this.state.selectedEvent.location).address}
                 </p>
+                <p>Details:</p>
                 <p className="infoDetails">{this.state.selectedEvent.short_details}</p>
                 <p className="infoTime">{this.convertTime(this.state.selectedEvent.event_time)}</p>
                 <p className="infoDate">

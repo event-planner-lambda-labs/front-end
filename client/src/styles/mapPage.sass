@@ -31,22 +31,36 @@
     .gm-style-mtc
         display: none
 
- 
+// info window border
+.gm-style-iw.gm-style-iw-c
+    background-color: $fourth-color
+
+.gm-style .gm-style-iw-t::after
+    background-color: $fourth-color
+
 .windowInfo
     display: flex
     flex-direction: column
+    background-color: $primary-color
+    border-radius: 8px
+    padding: 5px
 
     p
         margin: 5px 0
         font-weight: 400
+        color: $fifth-color
 
     .infoTitle
         align-self: center
+        color: $third-color
+        font-size: 1.4rem
 
     .infoAddress
+        margin-bottom: 15px
 
     .infoDetails
-
+        margin-left: 10px
     .infoDate
-
+        align-self: center
     .infoTime
+        align-self: center
