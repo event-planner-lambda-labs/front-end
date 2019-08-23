@@ -1,9 +1,18 @@
+.MapContainer
+    width: 100vw
+    height: 90vh
+    align-content: flex-end
+
+.MapPage
+    display: flex
+    flex-direction: column
+    
 .google-map
 
     .location-div
         position: absolute
         top: 10%
-        left: 40vw
+        left: 38vw
         bottom: 90%
         display: flex
         flex-direction: column
@@ -13,8 +22,7 @@
         
         input
             padding-left: 15px
-            width: 40%
-            bottom: 
+            width: 100%
 
 
         .location-search-input
@@ -22,14 +30,12 @@
             border-style: none
             border-radius: 10px
             height: 30px
+            width: 50%
 
         .autocomplete-dropdown-container
-            width: 40%
+            width: 50%
             position: absolute
             top: 100%
-
-    .gm-style-mtc
-        display: none
 
 // info window border
 .gm-style-iw.gm-style-iw-c

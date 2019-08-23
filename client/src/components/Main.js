@@ -4,9 +4,9 @@ import Navigation from "./Navigation";
 
 export default function Main(props) {
   return (
-    <div>
+    <div className="MapPage">
       <Navigation lock={props.lock} />
       <MapComponent props={props} />
     </div>
   );
-};
+}
