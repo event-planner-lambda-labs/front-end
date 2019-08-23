@@ -31,8 +31,8 @@ class Map extends React.Component {
       lat: lat,
       lng: lng,
       zoom: 18
-    })
-  }
+    });
+  };
 
   getPosition = () => {
     return new Promise(function(resolve, reject) {
@@ -41,20 +41,15 @@ class Map extends React.Component {
   };
 
   convertTime = time => {
-    console.log(parseInt(time))
-    if(parseInt(time) > 12) {
+    if (parseInt(time) > 12) {
       const hour = parseInt(time) - 12;
-      const minutes = time.slice(2, 5)
-      return(
-        <p>{hour + minutes + ' PM'}</p>
-      )
+      const minutes = time.slice(2, 5);
+      return <p>{hour + minutes + " PM"}</p>;
     } else {
-      const newTime = time.slice(0,5);
-      return (
-        <p>{newTime + ' AM'}</p>
-      )
+      const newTime = time.slice(0, 5);
+      return <p>{newTime + " AM"}</p>;
     }
-  }
+  };
 
   render() {
     return (
@@ -68,7 +63,7 @@ class Map extends React.Component {
             this.setState({
               ...this.state,
               zoom: 14
-            })
+            });
           }}
         >
           {this.props.events.map(event => {
@@ -81,8 +76,8 @@ class Map extends React.Component {
                 }}
                 //onclick event to show event details when clicking marker
                 onClick={() => {
-                  this.setState({ 
-                    selectedEvent: event, 
+                  this.setState({
+                    selectedEvent: event,
                     open: true,
                     lat: parseFloat(JSON.parse(event.location).lat),
                     lng: parseFloat(JSON.parse(event.location).lng),
@@ -98,17 +93,17 @@ class Map extends React.Component {
             );
           })}
 
-          {this.state.open && 
+          {this.state.open && (
             //displays data from database based on selected park
             <InfoWindow
               position={{
-                lat: parseFloat(JSON.parse(this.state.selectedEvent.location).lat),
+                lat: parseFloat(JSON.parse(this.state.selectedEvent.location).lat + 0.0001),
                 lng: parseFloat(JSON.parse(this.state.selectedEvent.location).lng)
               }}
               //sets default state back to null when closing event details
               onCloseClick={() => {
                 this.setState({
-                  selectedEvent: {}, 
+                  selectedEvent: {},
                   open: false,
                   lat: undefined,
                   lng: undefined,
@@ -116,15 +111,21 @@ class Map extends React.Component {
                 });
               }}
             >
-              <div>
-                <h3>{this.state.selectedEvent.title}</h3>
-                <p>{this.state.selectedEvent.short_details}</p>
-                <p>{moment(this.state.selectedEvent.event_date).format("MMM Do YYYY")}</p>
-                <p>{this.convertTime(this.state.selectedEvent.event_time)}</p>
-                {/* {console.log(this.convertTime(this.state.selectedEvent.event_time))} */}
+              <div className="windowInfo">
+                {/* {console.log(this.state.selectedEvent)} */}
+                <h3 className="infoTitle">{this.state.selectedEvent.title}</h3>
+                <p className="infoAddress">
+                  {JSON.parse(this.state.selectedEvent.location).address}
+                </p>
+                <p className="infoDetails">{this.state.selectedEvent.short_details}</p>
+                <p className="infoTime">{this.convertTime(this.state.selectedEvent.event_time)}</p>
+                <p className="infoDate">
+                  {" "}
+                  {moment(this.state.selectedEvent.event_date).format("MMM Do YYYY")}
+                </p>
               </div>
             </InfoWindow>
-          }
+          )}
         </GoogleMap>
       </div>
     );
