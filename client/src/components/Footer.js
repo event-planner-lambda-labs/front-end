@@ -8,13 +8,13 @@ class Footer extends Component {
         <div className="footer-links">
           <a href="https://lambdaschool.com/">Lambda School</a>
           
-          <a href="https://twitter.com/GoHaveFun2">
+          <a href="https://twitter.com/GoHaveFunApp">
             <i className="fab fa-twitter" />
           </a>
-          <a href="https://www.facebook.com">
+          <a href="https://www.facebook.com/GoHaveFunApp/">
             <i className="fab fa-facebook" />
           </a>
-          <a href="https://www.instagram.com/gohavefun1">
+          <a href="https://www.instagram.com/gohavefunapp/">
             <i className="fab fa-instagram" />
           </a>
           
