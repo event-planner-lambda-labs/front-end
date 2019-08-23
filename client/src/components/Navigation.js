@@ -74,7 +74,7 @@ class Navigation extends React.Component {
                 }
               />
             </ListItem>
-            <ListItem button onClick={() => this.btnClicked("/")} className="drawerBtn">
+            <ListItem button onClick={() => this.btnClicked("")} className="drawerBtn">
               <ListItemText primary="Home" />
             </ListItem>
             <ListItem button onClick={() => this.btnClicked("createEvent")} className="drawerBtn">

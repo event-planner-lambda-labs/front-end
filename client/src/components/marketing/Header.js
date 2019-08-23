@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import Fun from "../../pictures/fun.jpg";
+import {Fun} from "../../pictures";
 
 class Header extends Component {
   btnClicked = path => {

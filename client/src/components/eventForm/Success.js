@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
+import { getEvents } from '../../store/index';
 
 class Success extends Component {
   
   componentDidMount() {
+    this.props.getEvents();
     setTimeout(() => {
       this.props.history.push("/main");
     }, 2250);
@@ -20,4 +23,8 @@ class Success extends Component {
   }
 }
 
-export default withRouter(Success);
+const mapStateToProps = ({ events }) => ({
+  events
+})
+
+export default connect(mapStateToProps, { getEvents })(withRouter(Success));

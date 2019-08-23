@@ -2,8 +2,6 @@ import React from "react";
 import { withGoogleMap, withScriptjs } from "react-google-maps";
 import Map from "./Map";
 
-// import LocationSearchInput from "./LocationSearchComponent";
-
 const WrappedMap = withScriptjs(withGoogleMap(Map));
 
 export default function eventMap() {

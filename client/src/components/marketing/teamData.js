@@ -1,8 +1,5 @@
-import Anne from "../../pictures/anne.png";
-import Dani from "../../pictures/dani.png";
-import Preston from "../../pictures/preston.png";
-import David from "../../pictures/david.png";
-import Mike from "../../pictures/mike.png";
+    
+import { Anne, Dani, David, Preston, Mike} from "../../pictures";
 
 const teamData = [
   {
