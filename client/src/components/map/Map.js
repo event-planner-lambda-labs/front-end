@@ -4,6 +4,7 @@ import Search from "./LocationSearchComponent";
 import { connect } from "react-redux";
 import mapStyles from "../../styles/MapStyles";
 import Calendar from "../../pictures/event-icon.png";
+import moment from "moment";
 
 class Map extends React.Component {
   state = {
@@ -38,6 +39,22 @@ class Map extends React.Component {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
   };
+
+  convertTime = time => {
+    console.log(parseInt(time))
+    if(parseInt(time) > 12) {
+      const hour = parseInt(time) - 12;
+      const minutes = time.slice(2, 5)
+      return(
+        <p>{hour + minutes + ' PM'}</p>
+      )
+    } else {
+      const newTime = time.slice(0,5);
+      return (
+        <p>{newTime + ' AM'}</p>
+      )
+    }
+  }
 
   render() {
     return (
@@ -102,8 +119,9 @@ class Map extends React.Component {
               <div>
                 <h3>{this.state.selectedEvent.title}</h3>
                 <p>{this.state.selectedEvent.short_details}</p>
-                <p>{this.state.selectedEvent.event_date}</p>
-                <p>{this.state.selectedEvent.event_time}</p>
+                <p>{moment(this.state.selectedEvent.event_date).format("MMM Do YYYY")}</p>
+                <p>{this.convertTime(this.state.selectedEvent.event_time)}</p>
+                {/* {console.log(this.convertTime(this.state.selectedEvent.event_time))} */}
               </div>
             </InfoWindow>
           }
