@@ -9,9 +9,16 @@
     display: flex !important
     flex-direction: column !important
     align-items: space-evenly !important
+    @media #{$mobile}
+        width: 35vw
 
     .drawerBtn
         margin-top: 20px
+        @media #{$mobile}
+            margin-top: 10px
+
+.MuiIconButton-label
+    color: $third-color
     
 .drawerCloseBtn
     display: flex
@@ -23,7 +30,14 @@
     height: 100%
     display: flex !important
     flex-direction: column !important
-    // justify-content: space-evenly !important
 
     div:last-child
         margin-top: 10vh !important
+        @media #{$mobile}
+            margin-top: 5vh !important
+
+.MuiPaper-root
+    z-index: 1 !important
+
+
+
