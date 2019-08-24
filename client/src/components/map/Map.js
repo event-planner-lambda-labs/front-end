@@ -3,12 +3,13 @@ import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Search from "./LocationSearchComponent";
 import { connect } from "react-redux";
 import mapStyles from "../../styles/MapStyles";
-import Calendar from "../../pictures/event-icon.png";
+import { EventIcon, CurrentLocation } from "../../pictures";
 import moment from "moment";
 
 class Map extends React.Component {
   state = {
     selectedEvent: {},
+    selected: false,
     open: false,
     lat: undefined,
     lng: undefined,
@@ -28,6 +29,7 @@ class Map extends React.Component {
   searchLocation = (lat, lng) => {
     this.setState({
       ...this.state,
+      selected: true,
       lat: lat,
       lng: lng,
       zoom: 18
@@ -86,14 +88,28 @@ class Map extends React.Component {
                 }}
                 //displays icon for event, using default icon for now until category icons are integrated
                 icon={{
-                  url: Calendar,
+                  url: EventIcon,
                   scaledSize: new window.google.maps.Size(30, 30)
                 }}
               />
             );
           })}
 
+          {this.state.selected &&
+            <Marker 
+              position={{
+                lat: parseFloat(this.state.lat), // must be an integer, not a string
+                lng: parseFloat(this.state.lng)
+              }}
+              icon={{
+                url: CurrentLocation,
+                scaledSize: new window.google.maps.Size(30, 30)
+              }}
+            />
+          }
+          
           {this.state.open && (
+
             //displays data from database based on selected park
             <InfoWindow
               position={{
@@ -111,6 +127,7 @@ class Map extends React.Component {
                 });
               }}
             >
+
               <div className="windowInfo">
                 {/* {console.log(this.state.selectedEvent)} */}
                 <h3 className="infoTitle">{this.state.selectedEvent.title}</h3>

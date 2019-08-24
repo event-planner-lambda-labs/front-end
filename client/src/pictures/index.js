@@ -8,6 +8,7 @@ import Preston from './preston.png'
 import Features from './features.jpeg'
 import Upcoming from './upcoming.jpeg'
 import Map from './map.png'
+import CurrentLocation from './map-marker.png'
 
 export {
     Anne,
@@ -19,5 +20,6 @@ export {
     Preston,
     Features,
     Upcoming,
-    Map
+    Map,
+    CurrentLocation
 }
