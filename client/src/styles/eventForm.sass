@@ -6,6 +6,10 @@
     flex-direction: column
     justify-content: center
     align-items: center
+    @media #{$mobile}
+        margin-bottom: 1em
+        height: 85vh
+        margin-top: 1em
 
     form
         display: flex
@@ -35,6 +39,11 @@
             margin-top: 20px
             button 
                 width: 45%
+            
+        @media #{$mobile}
+            width: 80%
+            padding: 10px
+
 
 .eventFormSuccess
     width: 100vw
