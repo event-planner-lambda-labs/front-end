@@ -1,12 +1,14 @@
 .MapContainer
     width: 100vw
-    height: 90vh
-    align-content: flex-end
+    height: 92vh
+
 
 .MapPage
     display: flex
     flex-direction: column
-    
+    margin-top: 3.8em
+
+
 .google-map
 
     .location-div
@@ -19,7 +21,11 @@
         justify-content: center
         width: 50%
         height: 30px
-        
+        @media #{$mobile}
+            left: 32vw
+            width: 60%
+            top: 12%
+
         input
             padding-left: 15px
             width: 100%
@@ -31,6 +37,8 @@
             border-radius: 10px
             height: 30px
             width: 50%
+            @media #{$mobile}
+                width: 70%
 
         .autocomplete-dropdown-container
             width: 50%
@@ -46,7 +54,6 @@
 
 .gm-style .gm-style-iw-t::after
     background-color: $fourth-color
-
 
 
 .windowInfo
