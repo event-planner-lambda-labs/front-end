@@ -1,11 +1,13 @@
 import React, { Component } from "react";
+import Navigation from "../Navigation";
+
 import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
 import Success from "./Success";
 import Footer from "../Footer";
 
-export class EventForm extends Component {
+class EventForm extends Component {
   state = {
     step: 1,
     newEvent: {
@@ -16,7 +18,7 @@ export class EventForm extends Component {
       short_details: "",
       long_details: "",
       public_status: true,
-      host_id: 1 // test, need to pass in host_id
+      host_id: JSON.parse(localStorage.user).id
     }
   };
 
@@ -38,6 +40,15 @@ export class EventForm extends Component {
     });
   };
 
+  setLocation = location => {
+    this.setState({
+      newEvent: {
+        ...this.state.newEvent,
+        location: location
+      }
+    });
+  };
+
   //Handle Change
   handleChange = input => e => {
     this.setState({ newEvent: { ...this.state.newEvent, [input]: e.target.value } });
@@ -54,7 +65,6 @@ export class EventForm extends Component {
   };
 
   render() {
-    console.log(this.state.newEvent);
     const { step } = this.state;
     const {
       title,
@@ -90,8 +100,8 @@ export class EventForm extends Component {
                 values={values}
                 setLocation={this.setLocation}
               />
-              <Footer />
             </div>
+            <Footer />
           </>
         );
       case 2:
@@ -106,8 +116,9 @@ export class EventForm extends Component {
                 togglePublicStatus={this.togglePublicStatus}
                 values={values}
               />
-              <Footer />
+             
             </div>
+            <Footer />
           </>
         );
       case 3:
@@ -121,8 +132,8 @@ export class EventForm extends Component {
                 values={values}
                 newEvent={this.state.newEvent}
               />
-              <Footer />
             </div>
+            <Footer />
           </>
         );
       case 4:

@@ -3,11 +3,13 @@ import { GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import Search from "./LocationSearchComponent";
 import { connect } from "react-redux";
 import mapStyles from "../../styles/MapStyles";
-import Calendar from "../../pictures/event-icon.png";
+import { EventIcon, CurrentLocation } from "../../pictures";
+import moment from "moment";
 
 class Map extends React.Component {
   state = {
     selectedEvent: {},
+    selected: false,
     open: false,
     lat: undefined,
     lng: undefined,
@@ -27,16 +29,28 @@ class Map extends React.Component {
   searchLocation = (lat, lng) => {
     this.setState({
       ...this.state,
+      selected: true,
       lat: lat,
       lng: lng,
       zoom: 18
-    })
-  }
+    });
+  };
 
   getPosition = () => {
     return new Promise(function(resolve, reject) {
       navigator.geolocation.getCurrentPosition(resolve, reject);
     });
+  };
+
+  convertTime = time => {
+    if (parseInt(time) > 12) {
+      const hour = parseInt(time) - 12;
+      const minutes = time.slice(2, 5);
+      return <p>{hour + minutes + " PM"}</p>;
+    } else {
+      const newTime = time.slice(0, 5);
+      return <p>{newTime + " AM"}</p>;
+    }
   };
 
   render() {
@@ -51,7 +65,7 @@ class Map extends React.Component {
             this.setState({
               ...this.state,
               zoom: 14
-            })
+            });
           }}
         >
           {this.props.events.map(event => {
@@ -64,8 +78,8 @@ class Map extends React.Component {
                 }}
                 //onclick event to show event details when clicking marker
                 onClick={() => {
-                  this.setState({ 
-                    selectedEvent: event, 
+                  this.setState({
+                    selectedEvent: event,
                     open: true,
                     lat: parseFloat(JSON.parse(event.location).lat),
                     lng: parseFloat(JSON.parse(event.location).lng),
@@ -74,24 +88,38 @@ class Map extends React.Component {
                 }}
                 //displays icon for event, using default icon for now until category icons are integrated
                 icon={{
-                  url: Calendar,
+                  url: EventIcon,
                   scaledSize: new window.google.maps.Size(30, 30)
                 }}
               />
             );
           })}
 
-          {this.state.open && 
+          {this.state.selected &&
+            <Marker 
+              position={{
+                lat: parseFloat(this.state.lat), // must be an integer, not a string
+                lng: parseFloat(this.state.lng)
+              }}
+              icon={{
+                url: CurrentLocation,
+                scaledSize: new window.google.maps.Size(30, 30)
+              }}
+            />
+          }
+          
+          {this.state.open && (
+
             //displays data from database based on selected park
             <InfoWindow
               position={{
-                lat: parseFloat(JSON.parse(this.state.selectedEvent.location).lat),
+                lat: parseFloat(JSON.parse(this.state.selectedEvent.location).lat + 0.0001),
                 lng: parseFloat(JSON.parse(this.state.selectedEvent.location).lng)
               }}
               //sets default state back to null when closing event details
               onCloseClick={() => {
                 this.setState({
-                  selectedEvent: {}, 
+                  selectedEvent: {},
                   open: false,
                   lat: undefined,
                   lng: undefined,
@@ -99,14 +127,23 @@ class Map extends React.Component {
                 });
               }}
             >
-              <div>
-                <h3>{this.state.selectedEvent.title}</h3>
-                <p>{this.state.selectedEvent.short_details}</p>
-                <p>{this.state.selectedEvent.event_date}</p>
-                <p>{this.state.selectedEvent.event_time}</p>
+
+              <div className="windowInfo">
+                {/* {console.log(this.state.selectedEvent)} */}
+                <h3 className="infoTitle">{this.state.selectedEvent.title}</h3>
+                <p className="infoAddress">
+                  {JSON.parse(this.state.selectedEvent.location).address}
+                </p>
+                <p>Details:</p>
+                <p className="infoDetails">{this.state.selectedEvent.short_details}</p>
+                <p className="infoTime">{this.convertTime(this.state.selectedEvent.event_time)}</p>
+                <p className="infoDate">
+                  {" "}
+                  {moment(this.state.selectedEvent.event_date).format("MMM Do YYYY")}
+                </p>
               </div>
             </InfoWindow>
-          }
+          )}
         </GoogleMap>
       </div>
     );

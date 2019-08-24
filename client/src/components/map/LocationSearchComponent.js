@@ -1,23 +1,6 @@
 import React from "react";
 import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
-import "../../../src/App.css";
-import { Marker } from "react-google-maps";
-
-// const renderFunc = ({ getInputProps, getSuggestionItemProps, suggestions }) => (
-//   <div className="autocomplete-root">
-//     <input {...getInputProps()} />
-//     <div className="autocomplete-dropdown-container">
-//       {loading && <div>Loading...</div>}
-//       {suggestions.map(suggestion => (
-//         <div {...getSuggestionItemProps(suggestion)}>
-//           <span>{suggestion.description}</span>
-//         </div>
-//       ))}
-//     </div>
-//   </div>
-// );
-
 class LocationSearchInput extends React.Component {
   constructor(props) {
     super(props);
@@ -29,6 +12,7 @@ class LocationSearchInput extends React.Component {
   };
 
   handleSelect = address => {
+    this.setState({ value: address });
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
       // .then(results => console.log(results))
@@ -41,21 +25,12 @@ class LocationSearchInput extends React.Component {
 
   render() {
     return (
-      <PlacesAutocomplete value={this.state.value} onChange={value => this.setState({ value })}>
+      <PlacesAutocomplete
+        value={this.state.value}
+        onChange={value => this.setState({ value })}
+        onSelect={this.handleSelect}
+      >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          // <Marker
-
-          //   position={{
-          //     lat: events.lat, // must be an integer, not a string
-          //     lng: events.lng
-          //   }}
-
-          //   icon={{
-          //     url: "http://prankster101.com/newsite/wp-content/uploads/event-icon.png",
-          //     scaledSize: new window.google.maps.Size(25, 25)
-          //   }}
-          //   />
-
           <div className="location-div">
             <input
               {...getInputProps({
