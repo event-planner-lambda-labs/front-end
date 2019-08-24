@@ -45,7 +45,7 @@ class LocationSearchInput extends React.Component {
                 // inline style for demonstration purpose
                 const style = suggestion.active
                   ? { backgroundColor: "#fafafa", cursor: "pointer" }
-                  : { backgroundColor: "#ffffff", cursor: "pointer" };
+                  : { backgroundColor: "rgba( 23, 84, 120, 0.4)", cursor: "pointer" };
                 return (
                   <div
                     className="dropdown-container-text"
