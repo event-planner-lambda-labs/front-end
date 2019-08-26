@@ -243,7 +243,7 @@ export default function reducer(state = initialState, action) {
   }
 }
 
-const Link = "https://labs-event-planner-staging.herokuapp.com";
+const Link = "https://labs-event-planner-production.herokuapp.com";
 
 const FETCH_START = "FETCH_START";
 const FETCH_SUCCESS = "FETCH_SUCCESS";
