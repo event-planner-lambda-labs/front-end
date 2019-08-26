@@ -3,12 +3,19 @@
     width: 100vw
     height: 85vh
     display: flex
+    flex-direction: column
     justify-content: center
     align-items: center
+    @media #{$mobile}
+        margin-bottom: 1em
+        height: 85vh
+        margin-top: 1em
+
     form
         display: flex
         flex-direction: column
         width: 30%
+        height: 75%
         background-color: $fifth-color
         padding: 40px
         border-radius: 5px
@@ -32,6 +39,11 @@
             margin-top: 20px
             button 
                 width: 45%
+            
+        @media #{$mobile}
+            width: 80%
+            padding: 10px
+
 
 .eventFormSuccess
     width: 100vw

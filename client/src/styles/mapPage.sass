@@ -1,32 +1,82 @@
+.MapContainer
+    width: 100vw
+    height: 92vh
+    @media #{$mobile}
+        height: 90vh
+
+
+.MapPage
+    display: flex
+    flex-direction: column
+    margin-top: 3.8em
+
 .google-map
 
     .location-div
         position: absolute
         top: 10%
-        left: 40vw
+        left: 38vw
         bottom: 90%
         display: flex
         flex-direction: column
         justify-content: center
-        width: 50%
         height: 30px
-        
+        width: 20%
+        @media #{$mobile}
+            left: 30vw
+            top: 20%
+            width: 50%
         input
             padding-left: 15px
-            width: 40%
-            bottom: 
-
+            width: 100%
 
         .location-search-input
             background-color: $fourth-color
             border-style: none
             border-radius: 10px
             height: 30px
+            width: 100%
 
         .autocomplete-dropdown-container
-            width: 40%
+            width: 100%
             position: absolute
             top: 100%
+            color: $fifth-color
+          
+// info window border
+.gm-style-iw.gm-style-iw-c
+    background-color: $fourth-color
+    padding: 1em !important
+    .gm-style-iw-d
+        overflow: auto !important
 
-    .gm-style-mtc
-        display: none
+.gm-style .gm-style-iw-t::after
+    background-color: $fourth-color
+
+
+.windowInfo
+    display: flex
+    flex-direction: column
+    background-color: $primary-color
+    border-radius: 8px
+    padding: 5px
+
+    p
+        margin: 5px 0
+        font-weight: 400
+        color: $fifth-color
+
+    .infoTitle
+        align-self: center
+        color: $third-color
+        font-size: 1.4rem
+
+    .infoAddress
+        margin-bottom: 15px
+
+    .infoDetails
+        margin-left: 10px
+    .infoDate
+        align-self: center
+    .infoTime
+        align-self: center
