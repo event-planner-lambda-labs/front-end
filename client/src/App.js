@@ -1,13 +1,13 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import Auth0Lock from "auth0-lock";
+import { connect } from "react-redux";
+import { getEvents } from "./store/index";
 import PrivateRoute from "./auth/PrivateRoute";
 import Landing from "./components/LandingPage";
 import Main from "./components/Main";
-import Auth0Lock from "auth0-lock";
-import Redirect from "./components/LogRedirect";
+import Redirect from "./components/Redirect";
 import EventForm from "./components/eventForm/EventForm";
-import { connect } from "react-redux";
-import { getEvents } from "./store/index";
 
 const link = window.location.origin;
 

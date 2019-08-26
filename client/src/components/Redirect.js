@@ -1,9 +1,8 @@
 import React from "react";
-import { connect } from 'react-redux'
-import { getUsers } from '../store/index'
-import AddModal from "./LogRedirects/AddModal";
-import BackModal from "./LogRedirects/BackModal";
-import { CircularProgress } from '@material-ui/core'
+import { connect } from 'react-redux';
+import { getUsers } from '../store/index';
+import { CircularProgress } from '@material-ui/core';
+import { NewUser, ReturningUser } from './LogRedirects';
 
 class Redirect extends React.Component {
 
@@ -26,7 +25,7 @@ class Redirect extends React.Component {
 
     setTimeout(() => {
       this.props.getUsers();
-    }, 1500)
+    }, 2500)
   }
 
   modalRender = (users, localEmail) => {
@@ -41,9 +40,9 @@ class Redirect extends React.Component {
       }
     })
     if (currentUser) {
-      return <BackModal props={this.props} user={currentUser} />
+      return <ReturningUser user={currentUser} />
     } else {
-      return <AddModal props={this.props} />
+      return <NewUser />
     }
   }
 
@@ -53,7 +52,9 @@ class Redirect extends React.Component {
         {this.props.fetchedUsers ? (
           this.modalRender(this.props.allUsers, localStorage.profile)
           ) : (
-            <CircularProgress />
+            <div className='loader'>
+              <CircularProgress color='secondary' thickness={5} size={100}/>
+            </div>
           )}
       </div>
     );
