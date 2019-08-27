@@ -52,14 +52,7 @@ export default class MoreDetails extends Component {
           >
             Back
           </Button>
-          <Button
-            label="Continue"
-            variant="contained"
-            primary={true}
-            onClick={this.continue}
-          >
-            Continue
-          </Button>
+          {this.props.buttons(this.continue)}
         </div>
       </form>
     );

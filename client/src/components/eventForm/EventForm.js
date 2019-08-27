@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navigation from "../Navigation";
-
+import { Button } from '@material-ui/core'
 import EventDetails from "./EventDetails";
 import MoreDetails from "./MoreDetails";
 import Confirm from "./Confirm";
@@ -64,6 +64,43 @@ class EventForm extends Component {
     });
   };
 
+  // rendering a disabled button or abled based on input values
+  btnRender = conFunc => {
+    let btnAble = false;
+    const inputs = Array.from(document.querySelectorAll('.createEventForm input'));
+    inputs.forEach(input => {
+      if(input.value) {
+        btnAble = true;
+      } else {
+        btnAble = false;
+      }
+    })
+    
+    if(btnAble) {
+      return (
+        <Button
+          className='detailsBtn'
+          variant="contained"
+          primary={true}
+          onClick={conFunc}
+        >
+          Continue
+        </Button>
+      )
+    } else {
+      return (
+        <Button
+          className='detailsBtn'
+          variant="contained"
+          primary={true}
+          disabled
+        >
+          Continue
+        </Button>
+      )
+    }
+  }
+
   render() {
     const { step } = this.state;
     const {
@@ -99,6 +136,7 @@ class EventForm extends Component {
                 handleChange={this.handleChange}
                 values={values}
                 setLocation={this.setLocation}
+                buttons={this.btnRender}
               />
             </div>
             <Footer />
@@ -115,6 +153,7 @@ class EventForm extends Component {
                 handleChange={this.handleChange}
                 togglePublicStatus={this.togglePublicStatus}
                 values={values}
+                buttons={this.btnRender}
               />
              
             </div>
@@ -131,6 +170,7 @@ class EventForm extends Component {
                 prevStep={this.prevStep}
                 values={values}
                 newEvent={this.state.newEvent}
+                buttons={this.btnRender}
               />
             </div>
             <Footer />

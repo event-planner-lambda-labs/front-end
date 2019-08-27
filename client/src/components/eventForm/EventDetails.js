@@ -5,6 +5,10 @@ import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
 export default class EventDetails extends Component {
 
+  state = {
+    able: true
+  }
+
   continue = async e => {
     e.preventDefault();
     const location = {};
@@ -59,14 +63,7 @@ export default class EventDetails extends Component {
           }}
           required
         />
-        <Button
-          className='detailsBtn'
-          variant="contained"
-          primary={true}
-          onClick={this.continue}
-        >
-          Continue
-        </Button>
+        {this.props.buttons(this.continue)}
       </form>
     );
   };
