@@ -15,7 +15,7 @@ export default class MoreDetails extends Component {
   render() {
     const { values, handleChange, togglePublicStatus } = this.props;
     return (
-      <form className="createEventForm">
+      <form className="createEventForm" onSubmit={this.continue}>
         <h1>Enter More Details</h1>
         <TextField
           label="Short Details"
@@ -53,13 +53,13 @@ export default class MoreDetails extends Component {
             Back
           </Button>
           <Button
-            label="Continue"
+            className='detailsBtn'
             variant="contained"
             primary={true}
             onClick={this.continue}
           >
             Continue
-          </Button>
+        </Button>
         </div>
       </form>
     );
