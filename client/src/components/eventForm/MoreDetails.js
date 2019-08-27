@@ -15,7 +15,7 @@ export default class MoreDetails extends Component {
   render() {
     const { values, handleChange, togglePublicStatus } = this.props;
     return (
-      <form className="createEventForm">
+      <form className="createEventForm" onSubmit={this.continue}>
         <h1>Enter More Details</h1>
         <TextField
           label="Short Details"
