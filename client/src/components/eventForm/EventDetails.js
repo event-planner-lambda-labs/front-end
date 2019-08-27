@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import {TextField, Button} from "@material-ui/core";
+import {TextField} from "@material-ui/core";
 import LocationSearchInput from "./EventLocationComponent";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
 export default class EventDetails extends Component {
+
+  state = {
+    able: true
+  }
 
   continue = async e => {
     e.preventDefault();
@@ -59,14 +63,7 @@ export default class EventDetails extends Component {
           }}
           required
         />
-        <Button
-          className='detailsBtn'
-          variant="contained"
-          primary={true}
-          onClick={this.continue}
-        >
-          Continue
-        </Button>
+        {this.props.buttons(this.continue)}
       </form>
     );
   };

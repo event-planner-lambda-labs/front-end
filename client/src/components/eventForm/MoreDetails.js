@@ -53,13 +53,13 @@ export default class MoreDetails extends Component {
             Back
           </Button>
           <Button
-            label="Continue"
+            className='detailsBtn'
             variant="contained"
             primary={true}
             onClick={this.continue}
           >
             Continue
-          </Button>
+        </Button>
         </div>
       </form>
     );
