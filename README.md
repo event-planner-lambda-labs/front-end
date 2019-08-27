@@ -37,3 +37,6 @@ Michael Del Zotto
 David Barrios
 * [Github](https://github.com/dbarrios13)
 * Email: barriosadavid@gmail.com
+
+### Netlify
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e1cb58b3-b36b-49a1-ab7c-00cc035baf1e/deploy-status)](https://app.netlify.com/sites/event-planner/deploys)
