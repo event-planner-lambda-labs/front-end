@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {TextField, Button} from "@material-ui/core";
+import {TextField} from "@material-ui/core";
 import LocationSearchInput from "./EventLocationComponent";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 

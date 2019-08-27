@@ -153,7 +153,6 @@ class EventForm extends Component {
                 handleChange={this.handleChange}
                 togglePublicStatus={this.togglePublicStatus}
                 values={values}
-                buttons={this.btnRender}
               />
              
             </div>
@@ -170,7 +169,6 @@ class EventForm extends Component {
                 prevStep={this.prevStep}
                 values={values}
                 newEvent={this.state.newEvent}
-                buttons={this.btnRender}
               />
             </div>
             <Footer />
