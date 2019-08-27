@@ -20,20 +20,20 @@ GoHaveFun is built on
 ----------------
 Preston Burton
 * [Github](https://github.com/Oliver-Strange)
-* [Email]: preston.burton@gmail.com
+* Email: preston.burton@gmail.com
 
 Anne Tolmie
 * [Github](https://github.com/atolmie)
-* [Email]: atolmie22@gmail.com
+* Email: atolmie22@gmail.com
 
 Danielle O'Neil
 * [Github](https://github.com/droneal11015)
-* [Email](droneal11015@gmail.com
+* Email: droneal11015@gmail.com
 
 Michael Del Zotto
 * [Github](https://github.com/mdelzotto)
-* [Email]: michaeldelzottomba@gmail.com
+* Email: michaeldelzottomba@gmail.com
 
 David Barrios
 * [Github](https://github.com/dbarrios13)
-* [Email]: barriosadavid@gmail.com
+* Email: barriosadavid@gmail.com
