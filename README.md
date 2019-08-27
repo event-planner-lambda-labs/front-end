@@ -19,22 +19,27 @@ GoHaveFun is built on
 ### Contact Info
 ----------------
 Preston Burton
+* Team Lead / Full Stack
 * [Github](https://github.com/Oliver-Strange)
 * Email: preston.burton@gmail.com
 
 Anne Tolmie
+* Full Stack
 * [Github](https://github.com/atolmie)
 * Email: atolmie22@gmail.com
 
 Danielle O'Neil
+* Full Stack
 * [Github](https://github.com/droneal11015)
 * Email: droneal11015@gmail.com
 
 Michael Del Zotto
+* Full Stack
 * [Github](https://github.com/mdelzotto)
 * Email: michaeldelzottomba@gmail.com
 
 David Barrios
+* Full Stack
 * [Github](https://github.com/dbarrios13)
 * Email: barriosadavid@gmail.com
 
