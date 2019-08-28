@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
 function ReturningUser (props) {
 
@@ -12,7 +12,7 @@ function ReturningUser (props) {
     return (
         <div className='redirectPage'>
             <div className='content'>
-                <h2>Welcome, Back</h2>
+                <h2>Welcome Back</h2>
                 <p>{username}</p>
             </div>
         </div>
