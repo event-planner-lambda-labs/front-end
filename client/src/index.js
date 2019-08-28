@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/index.sass";
+import * as Sentry from "@sentry/browser";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
@@ -15,6 +16,8 @@ const devTool = window._REDUX_DEVTOOLS_EXTENSION_COMPOSE || compose;
 const store = createStore(reducer, devTool(applyMiddleware(thunk, logger)));
 
 const AppRouter = withRouter(App);
+
+Sentry.init({ dsn: "https://bde76cfac53648c89daea04b23aa0678@sentry.io/1543382" });
 
 ReactDOM.render(
   <Provider store={store}>
