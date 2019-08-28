@@ -13,7 +13,7 @@ class Confirm extends Component {
       if (this.props.postedEvent) {
         this.props.nextStep();
       } else {
-        alert("Event was not posted :( Try again?");
+        alert("Event was not posted, check required fields and try again?");
       }
     }, 2000);
   };
@@ -25,7 +25,15 @@ class Confirm extends Component {
 
   render() {
     const {
-      values: { title, location, event_time, event_date, short_details, long_details, public_status }
+      values: {
+        title,
+        location,
+        event_time,
+        event_date,
+        short_details,
+        long_details,
+        public_status
+      }
     } = this.props;
     return (
       <form className="createEventForm">
@@ -37,15 +45,10 @@ class Confirm extends Component {
           <ListItemText primary="Event Date" secondary={event_date} />
           <ListItemText primary="Short Details" secondary={short_details} />
           <ListItemText primary="Long Details" secondary={long_details} />
-          <ListItemText primary="Private Event" secondary={public_status ? 'No' : 'Yes'} />
+          <ListItemText primary="Private Event" secondary={public_status ? "No" : "Yes"} />
         </List>
-        <div className='btnGroup'>
-          <Button
-            label="Back"
-            variant="contained"
-            primary={false}
-            onClick={this.back}
-          >
+        <div className="btnGroup">
+          <Button label="Back" variant="contained" primary={false} onClick={this.back}>
             Back
           </Button>
           <Button

@@ -95,8 +95,8 @@ class Map extends React.Component {
             );
           })}
 
-          {this.state.selected &&
-            <Marker 
+          {this.state.selected && (
+            <Marker
               position={{
                 lat: parseFloat(this.state.lat), // must be an integer, not a string
                 lng: parseFloat(this.state.lng)
@@ -106,10 +106,9 @@ class Map extends React.Component {
                 scaledSize: new window.google.maps.Size(30, 30)
               }}
             />
-          }
-          
-          {this.state.open && (
+          )}
 
+          {this.state.open && (
             //displays data from database based on selected park
             <InfoWindow
               position={{
@@ -127,9 +126,7 @@ class Map extends React.Component {
                 });
               }}
             >
-
               <div className="windowInfo">
-                {/* {console.log(this.state.selectedEvent)} */}
                 <h3 className="infoTitle">{this.state.selectedEvent.title}</h3>
                 <p className="infoAddress">
                   {JSON.parse(this.state.selectedEvent.location).address}

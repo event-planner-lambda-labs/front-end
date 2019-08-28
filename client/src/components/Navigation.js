@@ -83,7 +83,12 @@ class Navigation extends React.Component {
             <ListItem button onClick={() => this.btnClicked("main")} className="drawerBtn">
               <ListItemText primary="Map" />
             </ListItem>
-            <ListItem button onClick={() => this.btnClicked("#")} className="drawerBtn">
+            <ListItem
+              button
+              component="a"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSfgyFUTSFv6wrUT9LDvs0pwyMx9oOECulU1aLgy2POiZw-LLA/viewform?usp=sf_link"
+              className="drawerBtn"
+            >
               <ListItemText primary="Submit Feedback" />
             </ListItem>
             <ListItem button onClick={localStorage.token ? this.logout : this.login}>

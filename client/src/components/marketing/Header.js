@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
-import {Fun} from "../../pictures";
+import { Fun } from "../../pictures";
 
 class Header extends Component {
   btnClicked = path => {
@@ -9,7 +9,7 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="landingHeader" data-aos="zoom-in-up" data-aos-duration="3000">
+      <header className="landingHeader" data-aos="fade-left" data-aos-duration="3000">
         <img className="headerPic" src={Fun} alt="" />
         <div className="head">
           <h1>Go Have Fun</h1>
