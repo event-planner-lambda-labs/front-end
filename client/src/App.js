@@ -21,7 +21,7 @@ class App extends React.Component {
       redirectUrl: `${link}/redirect`,
       responseType: "token",
       params: {
-        scope: "openid email"
+        scope: "openid profile email"
       }
     }
   });
